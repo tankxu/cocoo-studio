@@ -33,4 +33,10 @@
   .scroll-snap-mandatory {
     --scroll-snap-constraint: mandatory;
   }
+
+  @media (min-width:1024px) {
+    .lg\:writing-mode-tb {
+      writing-mode: tb-rl;
+    }
+  }
 }
