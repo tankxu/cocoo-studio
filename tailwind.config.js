@@ -15,6 +15,10 @@ module.exports = {
           'blue4': "#F1F7FF",
           'yellow1': "#F1C149",
           'yellow2': "#E8E6E0",
+        },
+        gradient: {
+          'blue1': '#004FA8',
+          'blue2': '#4183FF',
         }
       },
       backgroundImage: {

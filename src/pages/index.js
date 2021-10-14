@@ -63,7 +63,15 @@ const sectionTitleContent = [
   },
   {
     titleCN: "云桌面",
-    titleEN: "Cloud Desktop",
+    titleEN: "CLOUD DESKTOP",
+  },
+  {
+    titleCN: "布局",
+    titleEN: "LAYOUT GRID",
+  },
+  {
+    titleCN: "元素",
+    titleEN: "Element",
   },
   {
     titleCN: "品牌识别",
@@ -71,7 +79,7 @@ const sectionTitleContent = [
   },
   {
     titleCN: "IP形象",
-    titleEN: "Intellectual Property",
+    titleEN: "INTELLECTUAL PROPERTY",
   },
   {
     titleCN: "品牌识别",
@@ -107,10 +115,10 @@ const IconJoint = (props) => {
 
 const SectionTitle = ({section, styleName}) => {
   return (
-    <div className={`mx-auto max-w-screen-2xl px-4 text-center lg:sticky top-0 lg:text-left lg:mb-14 ${styleName}`}>
-      <div className="flex flex-col w-full  mt-4 lg:w-auto lg:flex-row lg:absolute">
+    <div className={`z-10 mx-auto max-w-screen-2xl px-4 text-center lg:sticky top-0 lg:text-left lg:mb-14 ${styleName}`}>
+      <div className="flex flex-col w-full mt-20 lg:mt-6 lg:w-auto lg:flex-row lg:absolute">
         <h2 className="font-semibold text-4xl lg:text-3xl lg:w-1 lg:order-last">{section.titleCN}</h2>
-        <p className="opacity-10 mt-2 text-3xl lg:text-3xl lg:mt-0 lg:writing-mode-tb">{section.titleEN}</p>
+        <p className="uppercase opacity-10 mt-2 text-3xl lg:text-3xl lg:mt-0 lg:writing-mode-tb">{section.titleEN}</p>
       </div>
     </div>
   )
@@ -120,7 +128,7 @@ const PrimaryButton = ({color, styleName, children}) => {
   return (
     <button
       type="button"
-      className={`inline-flex items-center px-10 py-4 border border-${color || "brand-dark"} shadow-sm text-base font-medium rounded-sm text-${color || "brand-dark"} hover:bg-brand-blue1 hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue1 ${styleName}`}
+      className={`inline-flex items-center px-10 py-4 border border-${color || "brand-dark"} border-opacity-50 shadow-sm text-base font-medium rounded-sm text-${color || "brand-dark"} transition-all hover:bg-brand-blue1 hover:bg-opacity-10 hover:border-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue1 ${styleName}`}
     >
       {children}
     </button>
@@ -133,22 +141,19 @@ const IndexPage = () => {
   return (
     <div className="bg-white">
       <div className="relative">
-        <Popover as="header" className="relative">
-          <div className="bg-gray-900 pt-6">
+
+        <main>
+          {/* Hero */}
+          <div className="flex flex-col bg-gradient-to-b from-gradient-blue1 to-gradient-blue2 md:flex-col-reverse">
+          <Popover as="header" className="relative">
+          <div className="bg-transparent pt-6">
             <nav
               className="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
               aria-label="Global"
             >
               <div className="flex items-center flex-1">
                 <div className="flex items-center justify-between w-full md:w-auto">
-                  <a href="#">
-                    <span className="sr-only">Workflow</span>
-                    <img
-                      className="h-8 w-auto sm:h-10"
-                      src="https://tailwindui.com/img/logos/workflow-mark-teal-200-cyan-400.svg"
-                      alt=""
-                    />
-                  </a>
+                  
                   <div className="-mr-2 flex items-center md:hidden">
                     <Popover.Button className="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
                       <span className="sr-only">Open main menu</span>
@@ -167,20 +172,6 @@ const IndexPage = () => {
                     </a>
                   ))}
                 </div>
-              </div>
-              <div className="hidden md:flex md:items-center md:space-x-6">
-                <a
-                  href="#"
-                  className="text-base font-medium text-white hover:text-gray-300"
-                >
-                  Log in
-                </a>
-                <a
-                  href="#"
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700"
-                >
-                  Start free trial
-                </a>
               </div>
             </nav>
           </div>
@@ -226,104 +217,36 @@ const IndexPage = () => {
                       </a>
                     ))}
                   </div>
-                  <div className="mt-6 px-5">
-                    <a
-                      href="#"
-                      className="block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700"
-                    >
-                      Start free trial
-                    </a>
-                  </div>
-                  <div className="mt-6 px-5">
-                    <p className="text-center text-base font-medium text-gray-500">
-                      Existing customer?{" "}
-                      <a href="#" className="text-gray-900 hover:underline">
-                        Login
-                      </a>
-                    </p>
-                  </div>
                 </div>
               </div>
             </Popover.Panel>
           </Transition>
-        </Popover>
+          </Popover>
 
-        <main>
-          {/* Hero */}
-          <div className="pt-10 bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
-            <div className="mx-auto max-w-7xl lg:px-8">
-              <div className="lg:grid lg:grid-cols-2 lg:gap-8">
-                <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
-                  <div className="lg:py-24">
-                    <h1 className="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                      <span className="block">A better way to</span>
-                      <span className="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">
-                        ship web apps
-                      </span>
-                    </h1>
-                    <p className="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
-                      Anim aute id magna aliqua ad ad non deserunt sunt. Qui
-                      irure qui Lorem cupidatat commodo. Elit sunt amet fugiat
-                      veniam occaecat fugiat.
-                    </p>
-                    <div className="mt-10 sm:mt-12">
-                      <form
-                        action="#"
-                        className="sm:max-w-xl sm:mx-auto lg:mx-0"
-                      >
-                        <div className="sm:flex">
-                          <div className="min-w-0 flex-1">
-                            <label htmlFor="email" className="sr-only">
-                              Email address
-                            </label>
-                            <input
-                              id="email"
-                              type="email"
-                              placeholder="Enter your email"
-                              className="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
-                            />
-                          </div>
-                          <div className="mt-3 sm:mt-0 sm:ml-3">
-                            <button
-                              type="submit"
-                              className="block w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
-                            >
-                              Start free trial
-                            </button>
-                          </div>
-                        </div>
-                        <p className="mt-3 text-sm text-gray-300 sm:mt-4">
-                          Start your free 14-day trial, no credit card
-                          necessary. By providing your email, you agree to our{" "}
-                          <a href="#" className="font-medium text-white">
-                            terms or service
-                          </a>
-                          .
-                        </p>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
-                  <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
-                    {/* Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ */}
-                    <img
-                      className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                      src="https://tailwindui.com/img/component-images/cloud-illustration-teal-cyan.svg"
-                      alt=""
-                    />
-                  </div>
-                </div>
+            <div className="mx-auto max-w-7xl pt-10 pb-20 px-4 sm:px-14 lg:px-32 text-center">
+              <a href="#">
+                  <span className="sr-only">CocooStudio</span>
+                  <StaticImage src="../images/cocoostudio-logo.png" alt="Cocoo Studio Logo" width="146"/>
+              </a>
+              <StaticImage src="../images/home-hero-title.png" alt="云端工作美学" width="1080" className="mt-28" />
+              <div className="text-base text-brand-blue3 mx-auto mt-14 text-left max-w-5xl">
+                <p className="leading-relaxed">
+                  腾讯云 CODING 专注打造DevOps SaaS 产品服务，为企业量身打造云研发工作套件。提出的体验语言“云端工作美学”，是为了让云研发工作体验变得更加“纯净简单”，更能“动态适应”不同场景和功能服务，也能企业变得更有“文化和思考”。
+                </p>
+                <p className="mt-4">
+                  Tencent CODING focuses on creating DevOps SaaS products and services, and tailoring cloud R&D work suites for enterprises.The experience language "Cloud Work Aesthetics" proposed by CODING DevOps is to make the cloud R&D work experience more "pure", to "dynamically adapt" to different scenarios and functional services, and to become more "cultural and thinking".
+                </p>
               </div>
             </div>
           </div>
 
+
           {/* 理念 Section */}
-          <div className="bg-white pt-14">
+          <div className="bg-white pt-8">
             <SectionTitle section={sectionTitleContent[0]} />
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:pl-32">
+            <div className="mx-auto max-w-7xl px-4 pt-28 sm:px-6 lg:pr-8 lg:pl-32">
               {ideology.map((item) => (
-                <div className="lg:flex justify-between mt-32 mb-48">
+                <div className="justify-between mb-48 lg:flex">
                   <div className="max-w-3xl mr-10 text-base">
                     <h3 className="mb-14 text-2xl font-semibold sm:text-6xl">
                       {item.name}
@@ -340,10 +263,10 @@ const IndexPage = () => {
           </div>
 
           {/* 产品 Section */}
-          <div className="bg-brand-dark py-14">
-            <SectionTitle section={sectionTitleContent[1]} styleName="text-white" />
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:px-32 text-center" >
-              <h3 className="text-white text-4xl mt-20 mb-16"><p className="inline-block">云端工作美学</p><IconJoint className="inline-block mx-5" /><p className="inline-block">产品倾向</p></h3>
+          <div className="bg-brand-dark pt-8 pb-20">
+            <SectionTitle section={sectionTitleContent[1]} styleName="text-white lg:mb-28" />
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-32 text-center" >
+              <h3 className="text-white text-4xl mt-24 mb-16"><span>云端工作美学</span><IconJoint className="inline-block mx-5 relative -top-1" /><span>产品倾向</span></h3>
               <StaticImage src="../images/product-matrix.png" alt="Product matrix" width="868" />
               <StaticImage src="../images/logo-tencent-coding.png" alt="Tencent Cloud and Coding logo" width="680" className="mt-36"/>
               <div className="text-base text-brand-blue3 mt-14">
@@ -366,12 +289,69 @@ const IndexPage = () => {
           </div>
 
           {/* 云桌面 Section */}
-          <div className="bg-brand-blue4 py-14">
-            <SectionTitle section={sectionTitleContent[2]} />
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:px-32 text-center" >
-              <StaticImage src="../images/coding-in-iphone.png" width="870" className="relative top-20"></StaticImage>
+          <div className="bg-brand-blue4 pt-8 pb-20 text-center">
+            <SectionTitle section={sectionTitleContent[2]} styleName="lg:mb-48"/>
+            <StaticImage src="../images/cloud-desktop.svg" width="1480" className="mt-20 lg:mt-4"></StaticImage>
+          </div>
+
+          <div className="bg-brand-dark pt-8">
+            <div className=" pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:px-32 text-center" >
+              <div className="text-base text-brand-blue3">
+                <p className="leading-relaxed">
+                  云工作美学的核心体验化呈现就是“云桌面”。这种桌面在于将用户的工作资产高效收纳并及时反馈动态，能够适应用户工作场景，也能为用户思考，充分体现每个用户的工作价值，也就是“纯净，动态，思考”这三个核心理念所追求的体验目标。在这样的目标下，无论是产品层级，控件与元素，品牌识别，又或是体验架构，都需要以”围绕企业客户中的工作角色而设计”的原则，通过塑造云工作美学，从而“持续提升每个用户的日常工作体验”。                
+                </p>
+                <p className="mt-8">
+                  The core experiential presentation of cloud work aesthetics is the "cloud desktop". This kind of desktop is to efficiently store the user’s work assets and timely feedback the dynamics. It can adapt to the user’s work scene and can also think for the user. It fully reflects the value of each user’s work, that is, the three cores of "pure, dynamic, and thinking". The experience goal pursued by the concept. Under such a goal, whether it is product level, controls and elements, brand identity, or experience architecture, it is necessary to "design around the job role of enterprise customers" and shape the aesthetics of cloud work to "sustain Enhance the daily work experience of each user".                
+                </p>
+              </div>
             </div>
           </div>
+
+          {/* 布局 Section */}
+          <div className="bg-white py-8">
+            <SectionTitle section={sectionTitleContent[3]} styleName="lg:mb-48"/>
+            <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-24 text-center" >
+              <StaticImage src="../images/layout-demo.png" width="1150" className=""></StaticImage>
+              <div className="text-base text-left grid grid-cols-6 mt-20">
+                <div className="col-span-6 lg:col-span-5">
+                  <p className="leading-relaxed">
+                    栅格系统是“云工作美学”特别提出的界面设计与常规内容布局方法，这一方面会打通UI视觉设计和前端开发/界面还原效果的一致性，另一方面也规范和限制了各种新界面设计时的“随意性”，将灵感和功能收纳进无形的容器中，为一致化的体验印象增加了严谨且持续的关注。
+                  </p>
+                  <p className="mt-8">
+                    The grid system is a special interface design and conventional content layout method proposed by "Cloud Work Aesthetics". On the one hand, it will open up the consistency of UI visual design and front-end development/interface restoration effects. On the other hand, it will also regulate and limit various new The "arbitrariness" of the interface design incorporates inspiration and functions into an invisible container, adding rigorous and continuous attention to a consistent experience impression.
+                  </p>
+                  <Link to="">
+                    <PrimaryButton styleName="mt-12">下载栅格 Sketch 模板文件</PrimaryButton>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 元素 Section */}
+          <div className="bg-white py-8">
+            <SectionTitle section={sectionTitleContent[4]} styleName="lg:mb-40"/>
+            <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20 text-center" >
+              <div className="grid grid-cols-2">
+                <StaticImage src="../images/element-dotmesh-1.png" width="600" className="relative lg:-ml-8 lg:w-4/5"></StaticImage>
+                <StaticImage src="../images/element-dotmesh-2.png" width="600" className="lg:w-4/5"></StaticImage>
+              </div>
+              <div className="text-base text-left grid grid-cols-6 mt-16">
+                <div className="col-span-6 lg:col-span-5">
+                  <p className="leading-relaxed">
+                    点阵元素是“云工作美学”中最能体现“严谨与规则化”内涵的核心元素，无论在界面设计还是品牌宣传中，恰当的使用点阵排列，会增强内容或者控件布局的合理性，也能在用户的心智中留下更为精确精密的体验印象。
+                  </p>
+                  <p className="mt-8">
+                  The dot matrix element is the core element that best reflects the connotation of "rigorous and regularized" in the "cloud work aesthetics". Whether in interface design or brand promotion, the proper use of dot matrix arrangement will enhance the rationality of content or control layout. It can also leave a more precise and precise experience impression in the user's mind.
+                  </p>
+                  <Link to="">
+                    <PrimaryButton styleName="mt-12">下载点阵 Sketch 模板文件</PrimaryButton>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </main>
       </div>
     </div>
