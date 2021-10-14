@@ -1,5 +1,6 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby"
 
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
@@ -61,6 +62,10 @@ const sectionTitleContent = [
     titleEN: "PRODUCT",
   },
   {
+    titleCN: "云桌面",
+    titleEN: "Cloud Desktop",
+  },
+  {
     titleCN: "品牌识别",
     titleEN: "BRANDING",
   },
@@ -78,16 +83,47 @@ const sectionTitleContent = [
   },
 ]
 
+
+
 // Components
 
-const SectionTitle = ({section}) => {
+const IconJoint = (props) => {
   return (
-    <div className="sticky top-0 mx-auto max-w-screen-2xl px-4 text-center lg:text-left ">
-      <div className="flex flex-col w-full lg:w-auto lg:flex-row absolute mt-4">
+    <svg
+      width={22}
+      height={22}
+      viewBox="0 0 22 22"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M3 0a.995.995 0 00-.707.293l-2 2a.999.999 0 000 1.414L7.586 11 .293 18.293a.999.999 0 000 1.414l2 2a.999.999 0 001.414 0L11 14.414l7.293 7.293a.999.999 0 001.414 0l2-2a.999.999 0 000-1.414L14.414 11l7.293-7.293a.999.999 0 000-1.414l-2-2a.999.999 0 00-1.414 0L11 7.586 3.707.293A.996.996 0 003 0z"
+        fill="#fff"
+      />
+    </svg>
+  )
+}
+
+const SectionTitle = ({section, styleName}) => {
+  return (
+    <div className={`mx-auto max-w-screen-2xl px-4 text-center lg:sticky top-0 lg:text-left lg:mb-14 ${styleName}`}>
+      <div className="flex flex-col w-full  mt-4 lg:w-auto lg:flex-row lg:absolute">
         <h2 className="font-semibold text-4xl lg:text-3xl lg:w-1 lg:order-last">{section.titleCN}</h2>
         <p className="opacity-10 mt-2 text-3xl lg:text-3xl lg:mt-0 lg:writing-mode-tb">{section.titleEN}</p>
       </div>
     </div>
+  )
+}
+
+const PrimaryButton = ({color, styleName, children}) => {
+  return (
+    <button
+      type="button"
+      className={`inline-flex items-center px-10 py-4 border border-${color || "brand-dark"} shadow-sm text-base font-medium rounded-sm text-${color || "brand-dark"} hover:bg-brand-blue1 hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue1 ${styleName}`}
+    >
+      {children}
+    </button>
   )
 }
 
@@ -283,22 +319,8 @@ const IndexPage = () => {
           </div>
 
           {/* 理念 Section */}
-          {/* <div className="max-h-screen overflow-y-scroll scroll-snap-y scroll-snap-mandatory">
-          <section class="w-full h-screen bg-red-200 scroll-snap-start">
-            <div className="mx-auto max-w-7xl lg:px-8">
-              Section 1
-            </div>
-          </section>
-          <section class="w-full h-screen bg-blue-200 scroll-snap-start">
-            Section 2
-          </section>
-          <section class="w-full h-screen bg-green-200 scroll-snap-start">
-            Section 3
-          </section>
-        </div> */}
           <div className="bg-white pt-14">
             <SectionTitle section={sectionTitleContent[0]} />
-            {/* {sectionTitle({})} */}
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:pl-32">
               {ideology.map((item) => (
                 <div className="lg:flex justify-between mt-32 mb-48">
@@ -314,6 +336,40 @@ const IndexPage = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* 产品 Section */}
+          <div className="bg-brand-dark py-14">
+            <SectionTitle section={sectionTitleContent[1]} styleName="text-white" />
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:px-32 text-center" >
+              <h3 className="text-white text-4xl mt-20 mb-16"><p className="inline-block">云端工作美学</p><IconJoint className="inline-block mx-5" /><p className="inline-block">产品倾向</p></h3>
+              <StaticImage src="../images/product-matrix.png" alt="Product matrix" width="868" />
+              <StaticImage src="../images/logo-tencent-coding.png" alt="Tencent Cloud and Coding logo" width="680" className="mt-36"/>
+              <div className="text-base text-brand-blue3 mt-14">
+                <p className="leading-relaxed">
+                  CODING logo由来已久，代表了code文化，即“严谨，高效，智慧”，新的标识更加简洁明快，在各类屏幕和印刷尺寸下，都可以迅速识别，我们推荐在不同的场合下使用不同的logo排版组合和色彩搭配，以便统一企业印象。
+                </p>
+                <p className="mt-8">
+                  The coding logo has been around for a long time and represents the code culture, that is, "rigorous, efficient, and intelligent". The new logo is more concise and clear. It can be recognized quickly on various screens and print sizes. We recommend using different on different occasions. The combination of logo typesetting and color matching in order to unify the corporate impression.
+                </p>
+                <Link to="">
+                  <PrimaryButton styleName="mt-12" color="brand-blue2">下载标志组合包/PPT模板</PrimaryButton>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* 产品 Section 过渡 */}
+          <div className="text-center bg-brand-dark relative z-10 bg-coding-logo-construct bg-112% bg-bottom bg-no-repeat 2xl:bg-2xl">
+            <StaticImage src="../images/coding-in-iphone.png" width="870" className="relative top-20"></StaticImage>
+          </div>
+
+          {/* 云桌面 Section */}
+          <div className="bg-brand-blue4 py-14">
+            <SectionTitle section={sectionTitleContent[2]} />
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:px-32 text-center" >
+              <StaticImage src="../images/coding-in-iphone.png" width="870" className="relative top-20"></StaticImage>
             </div>
           </div>
         </main>
