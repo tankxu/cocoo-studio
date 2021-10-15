@@ -27,11 +27,16 @@ module.exports = {
       backgroundSize: {
         '112%': '112%',
         '2xl': '96rem',
+      },
+      minWidth: {
+        '88': '22rem'
       }
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      fontWeight: ['hover', 'focus'],
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),
