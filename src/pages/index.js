@@ -348,7 +348,7 @@ const IndexPage = () => {
                     <p className="mt-8">{item.descEN}</p>
                   </div>
                   <div className="w-full grid place-items-center min-w-88" >
-                    <video id={`ideology-video-${i}`} muted width="400">
+                    <video id={`ideology-video-${i}`} muted width="400 playsinline">
                       <source src={item.video} type="video/mp4" />
                     </video>
                   </div>
@@ -360,7 +360,7 @@ const IndexPage = () => {
           {/* 产品 Section */}
           <div className="bg-brand-dark pt-8 pb-20">
             <SectionTitle section={sectionTitleContent[1]} styleName="text-white lg:mb-28" />
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-32 text-center" >
+            <div className="mx-auto max-w-7xl px-4 text-center overflow-hidden sm:px-6 lg:px-32 lg:-mt-14">
               <h3 className="text-white text-4xl mt-24 mb-16"><span>云端工作美学</span><IconJoint className="inline-block mx-5 relative -top-1" /><span>产品倾向</span></h3>
               <div id="product-matrix">
                   <StaticImage src="../images/product-matrix.png" alt="Product matrix" width="868" />
@@ -473,7 +473,7 @@ const IndexPage = () => {
           {/* 色彩 Section */}
           <div className="bg-white py-8">
             <SectionTitle section={sectionTitleContent[5]} styleName="lg:mb-40"/>
-            <div className="pt-36 pb-0 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20" >
+            <div className="pt-36 pb-0 mx-auto max-w-7xl px-4 overflow-hidden sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20">
               <StaticImage src="../images/color-platten.png" alt="color platten" width="613" className=""></StaticImage>
               <div className="text-base text-left grid grid-cols-6 mt-2 -mb-28">
                 <div className="col-span-6 lg:col-span-4 z-10">
@@ -596,32 +596,34 @@ At the same time, in the operational design materials, Tencent fonts can be appr
           </div>
 
            {/* 开源 Section */}
-          <div className="flex bg-opensource-bg w-200%">
-            <div className="z-10 py-8 w-full">
-              <SectionTitle section={sectionTitleContent[9]} styleName="lg:mb-128"/>
-              <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-80" >
-                <StaticImage src="../images/monkit-logo.png" alt="monkit logo" width="520" className="max-w-60%"></StaticImage>
-                <div className="text-base text-left grid grid-cols-6 mt-24 -mb-28">
-                  <div className="col-span-6 lg:col-span-4">
-                    <p className="leading-relaxed">
-                    为了给用户带来更好的产品体验，我们经过大量项目实践和总结，打磨出一个服务于企业级产品的设计体系——Monkit。<br/><br/>
+           <div className="overflow-hidden w-full">
+            <div className="flex bg-opensource-bg w-200%">
+              <div className="z-10 py-8 w-full">
+                <SectionTitle section={sectionTitleContent[9]} styleName="lg:mb-128"/>
+                <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-80" >
+                  <StaticImage src="../images/monkit-logo.png" alt="monkit logo" width="520" className="max-w-60%"></StaticImage>
+                  <div className="text-base text-left grid grid-cols-6 mt-24 -mb-28">
+                    <div className="col-span-6 lg:col-span-4">
+                      <p className="leading-relaxed">
+                      为了给用户带来更好的产品体验，我们经过大量项目实践和总结，打磨出一个服务于企业级产品的设计体系——Monkit。<br/><br/>
 
-  基于云端工作美学 Pure 纯净、Ddynamic 动态、Thinking 思考 三大设计价值观，通过提供完善的设计指引、最佳实践、设计资源来帮助产品团队降低冗余生产成本，让设计者专注于更好的用户体验。
-  未来 Monkit 将对外开放使用，致力于释放每个团队的潜力，共同打造 CODING 产品生态圈。
-                    </p>
-                    <p className="mt-8">
-                    In order to provide users with a better product experience, we have completed a large number of project practices and summaries, and polished a design system that serves enterprise-level products-Monkit.<br/>
-  Based on the three design values of cloud work aesthetics: Pure, Ddynamic, and Thinking, it helps product teams reduce redundant production costs by providing complete design guidelines, best practices, and design resources, allowing designers to focus on a better user experience .
-  In the future, Monkit will be open to the outside world, committed to releasing the potential of each team and jointly creating a coding product ecosystem.
-                    </p>
-                    <Link to="">
-                      <PrimaryButton styleName="mt-12">查看 Monkit</PrimaryButton>
-                    </Link>
+    基于云端工作美学 Pure 纯净、Ddynamic 动态、Thinking 思考 三大设计价值观，通过提供完善的设计指引、最佳实践、设计资源来帮助产品团队降低冗余生产成本，让设计者专注于更好的用户体验。
+    未来 Monkit 将对外开放使用，致力于释放每个团队的潜力，共同打造 CODING 产品生态圈。
+                      </p>
+                      <p className="mt-8">
+                      In order to provide users with a better product experience, we have completed a large number of project practices and summaries, and polished a design system that serves enterprise-level products-Monkit.<br/>
+    Based on the three design values of cloud work aesthetics: Pure, Ddynamic, and Thinking, it helps product teams reduce redundant production costs by providing complete design guidelines, best practices, and design resources, allowing designers to focus on a better user experience .
+    In the future, Monkit will be open to the outside world, committed to releasing the potential of each team and jointly creating a coding product ecosystem.
+                      </p>
+                      <Link to="">
+                        <PrimaryButton styleName="mt-12">查看 Monkit</PrimaryButton>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div className="bg-opensource-img w-full bg-contain bg-no-repeat relative right-16%"></div>
             </div>
-            <div className="bg-opensource-img w-full bg-contain bg-no-repeat relative right-16%"></div>
           </div>
 
           {/* Footer Section */}
