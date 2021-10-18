@@ -578,7 +578,6 @@ At the same time, in the operational design materials, Tencent fonts can be appr
                   <p className="text-center mb-4">客服形象</p>
                   <StaticImage src="../images/coding-avatar-4.png" alt="coding avatar" width="" className=""></StaticImage>
                 </div>
-
               </div>
               <div className="text-base text-left grid grid-cols-6 mt-2 -mb-28">
                 <div className="col-span-6 lg:col-span-5">
@@ -594,6 +593,11 @@ At the same time, in the operational design materials, Tencent fonts can be appr
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Footer Section */}
+          <div className="bg-footer-bg pt-20 pb-32 text-center">           
+              <StaticImage src="../images/home-footer-logo.png" alt="footer logo" width="500" className=""></StaticImage>
           </div>
 
         </main>
