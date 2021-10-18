@@ -1,7 +1,11 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
+  // mode: 'jit',
+  purge: [
+    './public/**/*.html',
+    './src/**/*.{js,jsx,ts,tsx}',
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -13,6 +17,7 @@ module.exports = {
           'blue2': "#8EB5FF",
           'blue3': "#CBDDFF",
           'blue4': "#F1F7FF",
+          'blue5': "#EDF4FF",
           'yellow1': "#F1C149",
           'yellow2': "#E8E6E0",
         },
@@ -23,6 +28,8 @@ module.exports = {
       },
       backgroundImage: {
         'coding-logo-construct': "url('../images/coding-logo-construct.png')",
+        'texture-section-bg1': "linear-gradient(94.35deg, #D0DCFF 3.99%, rgba(227, 234, 255, 0.842819) 56.52%, rgba(242, 246, 255, 0.721673) 97.01%)",
+        'texture-section-bg2': "linear-gradient(267.77deg, rgba(255, 167, 142, 0.943236) 0.86%, #CBA6FF 30.71%, #C0CEFA 52.37%, #4273FB 98.12%);",
       },
       backgroundSize: {
         '112%': '112%',
@@ -30,6 +37,18 @@ module.exports = {
       },
       minWidth: {
         '88': '22rem'
+      },
+      spacing: {
+        '60px': '60px',
+        '3px': '3px',
+        '18' : '4.5rem',
+        '630px': '630px',
+        '128': '32rem',
+        '192px': '192px',
+        '196px': '196px',
+      },
+      boxShadow: {
+        'lightbutton': '2px 4px 2px rgba(0, 0, 0, 0.05)',
       }
     },
   },

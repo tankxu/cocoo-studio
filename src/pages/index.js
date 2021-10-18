@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import sal from "gatsby-plugin-scroll-reveal";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import classNames from "classnames";
 
 import PureMotion from "../assets/pure-motion.mp4"
 import DynamicMotion from "../assets/dynamic-motion.mp4"
@@ -79,21 +80,30 @@ const sectionTitleContent = [
     titleEN: "Element",
   },
   {
-    titleCN: "品牌识别",
-    titleEN: "BRANDING",
-  },
-  {
-    titleCN: "IP形象",
-    titleEN: "INTELLECTUAL PROPERTY",
-  },
-  {
-    titleCN: "品牌识别",
-    titleEN: "BRANDING",
-  },
-  {
     titleCN: "色彩",
     titleEN: "COLOR",
   },
+  {
+    titleCN: "质感",
+    titleEN: "Texture",
+  },
+  {
+    titleCN: "字体",
+    titleEN: "FONT",
+  },
+  {
+    titleCN: "IP形象",
+    titleEN: "BRADING",
+  },
+  {
+    titleCN: "开源与社区",
+    titleEN: "OPEN SOURCE AND COMMUNITY",
+  },
+]
+
+const dotmeshTab = [
+  { name: '系统页面应用展示', href: '#', current: true },
+  { name: '其它页面应用展示', href: '#', current: false },
 ]
 
 
@@ -160,7 +170,6 @@ const IndexPage = () => {
           trigger: "#product-matrix",
           start: "top 70%",
           toggleActions: "play none none reverse",
-          markers: true,
         },
         y: 0,
         opacity: 1,
@@ -176,7 +185,7 @@ const IndexPage = () => {
 
       videoState[i] = 0
       const playVideo = (videoElement) => {
-        if (videoState[i] == 0) {
+      if (videoState[i] == 0) {
           videoElement.play()
           videoState[i] = 1
         }
@@ -201,7 +210,6 @@ const IndexPage = () => {
 
       ScrollTrigger.create({
         trigger: triggerId,
-        markers: true,
         start: "top 60%",
         once: true,
         onToggle: self => self.start ? playVideo(videoElement) : null,
@@ -218,7 +226,7 @@ const IndexPage = () => {
           {/* Hero */}
           <div className="flex flex-col bg-gradient-to-b from-gradient-blue1 to-gradient-blue2 md:flex-col-reverse">
           <Popover as="header" className="relative">
-          <div className="bg-transparent pt-6 h-20">
+          <div className="bg-transparent pt-6 h-18">
             <nav
               className="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
               aria-label="Global"
@@ -234,7 +242,9 @@ const IndexPage = () => {
                 </div>
                 <div className="mx-auto w-full max-w-2xl hidden md:grid md:grid-cols-3">
                   {navigation.map((item, index) => {
-                    if (index == 0) {
+                    let activeMenu = 0
+
+                    if (index == activeMenu) {
                       return (
                         <a
                         key={item.name}
@@ -242,6 +252,7 @@ const IndexPage = () => {
                         className="col-span-1 text-center text-xl text-white font-semibold "
                         >
                         <span>{item.name}</span>
+                        <div class="w-60px h-3px bg-white mx-auto relative -bottom-4"></div>
                         </a>
                       )
                     } else {
@@ -249,7 +260,7 @@ const IndexPage = () => {
                         <a
                         key={item.name}
                         href={item.href}
-                        className="col-span-1 text-center text-xl text-white font-normal opacity-80 hover:opacity-100 hover:font-medium"
+                        className="col-span-1 text-center text-xl text-white font-normal opacity-80 transition-all hover:opacity-100 hover:font-medium"
                         >
                         {item.name}
                         </a>
@@ -261,6 +272,9 @@ const IndexPage = () => {
               </div>
             </nav>
           </div>
+          <a href="https://coding.net" target="_blank">
+            <button class="font-semibold text-white px-6 py-3.5 bg-gradient-to-br from-brand-blue2 to-brand-blue1 rounded-full absolute right-8 bottom-4 shadow-lightbutton  hover:opacity-80">CODING 官网</button>
+          </a>
 
           <Transition
             as={Fragment}
@@ -412,9 +426,9 @@ const IndexPage = () => {
           </div>
 
           {/* 元素 Section */}
-          <div className="bg-white py-8">
+          <div className="bg-white pt-8">
             <SectionTitle section={sectionTitleContent[4]} styleName="lg:mb-40"/>
-            <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20 text-center" >
+            <div className="pt-36 pb-0 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20 text-center" >
               <div className="grid grid-cols-2">
                 <StaticImage src="../images/element-dotmesh-1.png" alt="dot mesh 1" width="600" className="relative lg:-ml-8 lg:w-4/5"></StaticImage>
                 <StaticImage src="../images/element-dotmesh-2.png" alt="dot mesh 2" width="600" className="lg:w-4/5"></StaticImage>
@@ -429,6 +443,153 @@ const IndexPage = () => {
                   </p>
                   <Link to="">
                     <PrimaryButton styleName="mt-12">下载点阵 Sketch 模板文件</PrimaryButton>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="mt-48">
+                <nav className="-mb-px flex justify-center space-x-12" aria-label="dotmeshTab">
+                  {dotmeshTab.map((tab) => (
+                    <a
+                      key={tab.name}
+                      href={tab.href}
+                      className={classNames(
+                        tab.current
+                          ? 'border-brand-blue2 text-black text-2xl'
+                          : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 relative top-1.5',
+                        'whitespace-nowrap py-4 px-1 border-b-4 font-medium text-sm'
+                      )}
+                      aria-current={tab.current ? 'page' : undefined}
+                    >
+                      {tab.name}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+              <StaticImage src="../images/dotmesh-demo1.png" alt="dot mesh demo 1" width="1600" className=""></StaticImage>
+            </div>
+          </div>  
+
+          {/* 色彩 Section */}
+          <div className="bg-white py-8">
+            <SectionTitle section={sectionTitleContent[5]} styleName="lg:mb-40"/>
+            <div className="pt-36 pb-0 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20" >
+              <StaticImage src="../images/color-platten.png" alt="color platten" width="613" className=""></StaticImage>
+              <div className="text-base text-left grid grid-cols-6 mt-2 -mb-28">
+                <div className="col-span-6 lg:col-span-4 z-10">
+                  <p className="leading-relaxed">
+                  我们选择用以下几种颜色作为UI及品牌色。<br/>
+品牌色以蓝为主，以红，黄作为调整色，保证不会过于冷静，从而在合适的场合表达产品的温度感，我们希望CODING整体鲜活明亮，打破常规To B产品的冷色调风格，用深色，浅色组合使用，塑造出让用户认同的美学风格。<br/>
+辅助色为品牌色的邻近色，增强视觉的和谐度，保证品牌和体验的印象统一。
+                  </p>
+                  <p className="mt-8">
+                  We choose the following UI colors and branding colors.<br/>
+The brand color is mainly blue, and red and yellow are used as adjustment colors to ensure that it will not be too cool, so as to express the temperature of the product on the right occasion. We hope that the overall color of CODING is fresh and bright, breaking the cool color style of conventional To B products. Use a combination of dark and light colors to create an aesthetic style that users agree with.<br/>
+The auxiliary color is the adjacent color of the brand color, which enhances the visual harmony and ensures the unification of the brand and experience.
+                  </p>
+                  <Link to="">
+                    <PrimaryButton styleName="mt-12">下载色板及相关色彩标准</PrimaryButton>
+                  </Link>
+                </div>
+                <div className="text-center col-span-6 lg:col-span-2">
+                  <StaticImage src="../images/symbol-number3.png" alt="a symbol about number 3" width="630" className="relative lg:w-630px lg:-top-56 lg:-left-28"></StaticImage> 
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 质感 Section */}
+          <div className="bg-texture-section-bg2 py-8">
+            <SectionTitle section={sectionTitleContent[6]} styleName="lg:mb-40"/>
+            <div className="bg-texture-section-bg1 -mt-196px lg:-mt-192px">
+              <div className="pt-36 pb-32 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20" >
+                <div className="text-base text-left grid grid-cols-6 mt-2 lg:pt-128">
+                  <div className="text-center col-span-6 lg:col-span-1">
+                      <StaticImage src="../images/texture-img1.png" alt="texture image 1" width="" className="relative my-20 lg:my-0 lg:w-630px lg:-top-96 lg:-left-44"></StaticImage>
+                  </div>
+                  <div className="col-span-6 z-10 lg:col-span-5 lg:text-right">
+                    <p className="leading-relaxed">
+                    CODING的服务面向众多行业，我们搭建的研发平台，是具备高可用，高扩展性的“工作容器“，所以纯净及透明的材质，是表达这种容器感的最佳选择，而材质具备流动感和色彩感，则进一步让用户感知到实际工作场景和内容的丰富多样和情感温度。
+                    </p>
+                    <p className="mt-8">
+                    Coding's services are oriented to many industries. The R&D platform we build is a "work container" with high availability and high scalability, so pure and transparent materials are the best choice to express this sense of container, and the material has a sense of fluidity and The sense of color further allows users to perceive the richness and emotional temperature of actual work scenes and content.
+                    </p>
+                    <Link to="">
+                      <PrimaryButton styleName="mt-12">下载产品解决方案配图素材</PrimaryButton>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="pt-36 pb-12 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-32" >
+              <div className="grid grid-cols-8">
+                <div className="col-span-full lg:col-start-1 lg:col-end-4">
+                  <StaticImage src="../images/texture-video-cover.png" alt="video cover" width="" className="relative"></StaticImage>
+                  <p className="text-sm lg:text-xs mt-6 pl-8">*点击观看材质与动画实例</p>
+                </div>
+                <div className="hidden lg:block col-start-6 col-end-9">
+                  <StaticImage src="../images/texture-img2.png" alt="texture image 2" width="" className="relative "></StaticImage>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 字体 Section */}
+          <div className="bg-white py-8">
+            <SectionTitle section={sectionTitleContent[7]} styleName="lg:mb-40"/>
+            <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20" >
+              <StaticImage src="../images/font-img.png" alt="font image" width="613" className=""></StaticImage>
+              <div className="text-base text-left grid grid-cols-6 mt-2 -mb-28">
+                <div className="col-span-6 lg:col-span-5">
+                  <p className="leading-relaxed">
+                  为了更加契合品牌字体，传达IT工程师文化，在产品页面中，标题使用 Inter 字体；Roboto_Mono 作为数据类字体，代码属性符合产品调性；正文调整为苹方，棱角分明，干净利落，具有品质感。<br/>
+于此同时，在运营类设计物料中，可以在标题上适当使用腾讯字体，以保证符合腾讯文化，其余建议使用以上标准字体，以便保证大篇幅的内容可识别性。
+                  </p>
+                  <p className="mt-8">
+                  In order to better fit the brand font and convey the IT engineer culture, on the product page, it is recommended to use Inter font for the title; Roboto_Mono is used as a data font, and the code attributes are in line with the product tone; the text is adjusted to be square, sharp, clean, and with a sense of quality .<br/>
+At the same time, in the operational design materials, Tencent fonts can be appropriately used in the titles to ensure compliance with Tencent culture. The rest are recommended to use the above standard fonts and ensure the recognizable content of large pages.
+                  </p>
+                  <Link to="">
+                    <PrimaryButton styleName="mt-12">下载以上字体文件</PrimaryButton>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* IP Section */}
+          <div className="bg-brand-blue5 py-8">
+            <SectionTitle section={sectionTitleContent[8]} styleName="lg:mb-40"/>
+            <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20" >
+              <div className="grid grid-cols-4">
+                <div className="grid px-4 col-span-2 lg:col-span-1">
+                  <p className="text-center mb-4">基本形象</p>
+                  <StaticImage src="../images/coding-avatar-1.png" alt="coding avatar" width="" className=""></StaticImage>
+                </div>
+                <div className="grid px-4 col-span-2 lg:col-span-1">
+                  <p className="text-center mb-4">个性化形象</p>
+                  <StaticImage src="../images/coding-avatar-2.png" alt="coding avatar" width="" className=""></StaticImage>
+                </div>
+                <div className="grid px-4 col-span-2 lg:col-span-1">
+                  <p className="text-center mb-4">商务化形象</p>
+                  <StaticImage src="../images/coding-avatar-3.png" alt="coding avatar" width="" className=""></StaticImage>
+                </div>
+                <div className="grid px-4 col-span-2 lg:col-span-1">
+                  <p className="text-center mb-4">客服形象</p>
+                  <StaticImage src="../images/coding-avatar-4.png" alt="coding avatar" width="" className=""></StaticImage>
+                </div>
+
+              </div>
+              <div className="text-base text-left grid grid-cols-6 mt-2 -mb-28">
+                <div className="col-span-6 lg:col-span-5">
+                  <p className="leading-relaxed">
+                  CODING 洋葱猴形象包含三种基本形象，基本版，个性版，商务版。这些形象应当出现在与用户或客户沟通时的场合或相关设计方案中，包括并不限于“动态广告，运营活动，品牌周边”等场合，请勿滥用形象，请勿低龄化使用这些形象，如有不明白，请咨询Cocoo Studio设计负责人。
+                  </p>
+                  <p className="mt-8">
+                  The CODING onion monkey image contains three basic images, the basic version, the character version, and the business version. These images should appear in occasions when communicating with users or customers or in related design solutions, including but not limited to occasions such as "dynamic advertisements, operational activities, brand surroundings", etc. Do not abuse the images, and do not use these images at a young age, such as If you don’t understand, please consult the design leader of Cocoo Studio.
+                  </p>
+                  <Link to="">
+                    <PrimaryButton styleName="mt-12">下载 3D 形象及源文件</PrimaryButton>
                   </Link>
                 </div>
               </div>
