@@ -240,7 +240,7 @@ const IndexPage = () => {
                     </Popover.Button>
                   </div>
                 </div>
-                <div className="mx-auto w-full max-w-2xl hidden md:grid md:grid-cols-3">
+                <div className="lg:mx-auto w-full max-w-xl lg:max-w-2xl hidden md:grid md:grid-cols-3">
                   {navigation.map((item, index) => {
                     let activeMenu = 0
 
@@ -273,7 +273,7 @@ const IndexPage = () => {
             </nav>
           </div>
           <a href="https://coding.net" target="_blank">
-            <button class="font-semibold text-white px-6 py-3.5 bg-gradient-to-br from-brand-blue2 to-brand-blue1 rounded-full absolute right-8 bottom-4 shadow-lightbutton  hover:opacity-80">CODING 官网</button>
+            <button class="font-semibold text-white px-6 py-3.5 bg-gradient-to-br from-brand-blue2 to-brand-blue1 rounded-full absolute right-4 bottom-0 shadow-lightbutton hover:opacity-80 md:right-8 md:bottom-4">CODING 官网</button>
           </a>
 
           <Transition
@@ -287,7 +287,7 @@ const IndexPage = () => {
           >
             <Popover.Panel
               focus
-              className="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden"
+              className="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden z-10"
             >
               <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
                 <div className="px-5 pt-4 flex items-center justify-between">
