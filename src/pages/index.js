@@ -560,7 +560,7 @@ At the same time, in the operational design materials, Tencent fonts can be appr
           {/* IP Section */}
           <div className="bg-brand-blue5 py-8">
             <SectionTitle section={sectionTitleContent[8]} styleName="lg:mb-40"/>
-            <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20" >
+            <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-12" >
               <div className="grid grid-cols-4">
                 <div className="grid px-4 col-span-2 lg:col-span-1">
                   <p className="text-center mb-4">基本形象</p>
@@ -579,7 +579,7 @@ At the same time, in the operational design materials, Tencent fonts can be appr
                   <StaticImage src="../images/coding-avatar-4.png" alt="coding avatar" width="" className=""></StaticImage>
                 </div>
               </div>
-              <div className="text-base text-left grid grid-cols-6 mt-2 -mb-28">
+              <div className="text-base text-left grid grid-cols-6 mt-12 -mb-28">
                 <div className="col-span-6 lg:col-span-5">
                   <p className="leading-relaxed">
                   CODING 洋葱猴形象包含三种基本形象，基本版，个性版，商务版。这些形象应当出现在与用户或客户沟通时的场合或相关设计方案中，包括并不限于“动态广告，运营活动，品牌周边”等场合，请勿滥用形象，请勿低龄化使用这些形象，如有不明白，请咨询Cocoo Studio设计负责人。
@@ -595,8 +595,37 @@ At the same time, in the operational design materials, Tencent fonts can be appr
             </div>
           </div>
 
+           {/* 开源 Section */}
+          <div className="flex bg-opensource-bg w-200%">
+            <div className="z-10 py-8 w-full">
+              <SectionTitle section={sectionTitleContent[9]} styleName="lg:mb-128"/>
+              <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-80" >
+                <StaticImage src="../images/monkit-logo.png" alt="monkit logo" width="520" className="max-w-60%"></StaticImage>
+                <div className="text-base text-left grid grid-cols-6 mt-24 -mb-28">
+                  <div className="col-span-6 lg:col-span-4">
+                    <p className="leading-relaxed">
+                    为了给用户带来更好的产品体验，我们经过大量项目实践和总结，打磨出一个服务于企业级产品的设计体系——Monkit。<br/><br/>
+
+  基于云端工作美学 Pure 纯净、Ddynamic 动态、Thinking 思考 三大设计价值观，通过提供完善的设计指引、最佳实践、设计资源来帮助产品团队降低冗余生产成本，让设计者专注于更好的用户体验。
+  未来 Monkit 将对外开放使用，致力于释放每个团队的潜力，共同打造 CODING 产品生态圈。
+                    </p>
+                    <p className="mt-8">
+                    In order to provide users with a better product experience, we have completed a large number of project practices and summaries, and polished a design system that serves enterprise-level products-Monkit.<br/>
+  Based on the three design values of cloud work aesthetics: Pure, Ddynamic, and Thinking, it helps product teams reduce redundant production costs by providing complete design guidelines, best practices, and design resources, allowing designers to focus on a better user experience .
+  In the future, Monkit will be open to the outside world, committed to releasing the potential of each team and jointly creating a coding product ecosystem.
+                    </p>
+                    <Link to="">
+                      <PrimaryButton styleName="mt-12">查看 Monkit</PrimaryButton>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-opensource-img w-full bg-contain bg-no-repeat relative right-16%"></div>
+          </div>
+
           {/* Footer Section */}
-          <div className="bg-footer-bg pt-20 pb-32 text-center">           
+          <div className="bg-footer-bg bg-center bg-cover pt-20 pb-40 text-center">           
               <StaticImage src="../images/home-footer-logo.png" alt="footer logo" width="500" className=""></StaticImage>
           </div>
 
