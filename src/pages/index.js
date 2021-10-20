@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import classNames from "classnames";
 
 import PureMotion from "../assets/pure-motion.mp4"
-import DynamicMotion from "../assets/dynamic-motion.mp4"
+import DynamicMotion from "../assets/dynamic-motion-2.mp4"
 import ThinkingMotion from "../assets/thinking-motion.mp4"
 
 
@@ -348,9 +348,14 @@ const IndexPage = () => {
                     <p className="mt-8">{item.descEN}</p>
                   </div>
                   <div className="w-full grid place-items-center min-w-88" >
-                    <video id={`ideology-video-${i}`} muted width="400 playsinline">
-                      <source src={item.video} type="video/mp4" />
-                    </video>
+                    <video 
+                      id={`ideology-video-${i}`}
+                      playsInline
+                      muted
+                      preload="auto"
+                      width="400"
+                      src={item.video} 
+                    />
                   </div>
                 </div>
               ))}
