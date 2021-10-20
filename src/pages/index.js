@@ -319,9 +319,9 @@ const IndexPage = () => {
             <div className="mx-auto max-w-7xl pt-10 pb-20 px-4 sm:px-14 lg:px-32 text-center">
               <a href="#">
                   <span className="sr-only">CocooStudio</span>
-                  <StaticImage src="../images/cocoostudio-logo.png" alt="Cocoo Studio Logo" width="146"/>
+                  <StaticImage src="../images/cocoostudio-logo.png" alt="Cocoo Studio Logo" width="146" placeholder="none" />
               </a>
-              <StaticImage src="../images/home-hero-title.png" alt="云端工作美学" width="1080" className="mt-28" />
+              <StaticImage src="../images/home-hero-title.png" alt="云端工作美学" width="1080" placeholder="none" className="mt-28" />
               <div className="text-base text-brand-blue3 mx-auto mt-14 text-left max-w-5xl">
                 <p className="leading-relaxed">
                   腾讯云 CODING 专注打造DevOps SaaS 产品服务，为企业量身打造云研发工作套件。提出的体验语言“云端工作美学”，是为了让云研发工作体验变得更加“纯净简单”，更能“动态适应”不同场景和功能服务，也能企业变得更有“文化和思考”。
@@ -368,9 +368,9 @@ const IndexPage = () => {
             <div className="mx-auto max-w-7xl px-4 text-center overflow-hidden sm:px-6 lg:px-32 lg:-mt-14">
               <h3 className="text-white text-4xl mt-24 mb-16"><span>云端工作美学</span><IconJoint className="inline-block mx-5 relative -top-1" /><span>产品倾向</span></h3>
               <div id="product-matrix">
-                  <StaticImage src="../images/product-matrix.png" alt="Product matrix" width="868" />
+                  <StaticImage src="../images/product-matrix.png" alt="Product matrix" width="868" placeholder="none" />
               </div>
-              <StaticImage src="../images/logo-tencent-coding.png" alt="Tencent Cloud and Coding logo" width="680" className="mt-36"/>
+              <StaticImage src="../images/logo-tencent-coding.png" alt="Tencent Cloud and Coding logo" width="680" placeholder="none" className="mt-36"/>
               <div className="text-base text-brand-blue3 mt-14">
                 <p className="leading-relaxed">
                   CODING logo由来已久，代表了code文化，即“严谨，高效，智慧”，新的标识更加简洁明快，在各类屏幕和印刷尺寸下，都可以迅速识别，我们推荐在不同的场合下使用不同的logo排版组合和色彩搭配，以便统一企业印象。
@@ -387,13 +387,13 @@ const IndexPage = () => {
 
           {/* 产品 Section 过渡 */}
           <div className="text-center bg-brand-dark relative z-10 bg-coding-logo-construct bg-112% bg-bottom bg-no-repeat 2xl:bg-2xl">
-            <StaticImage src="../images/coding-in-iphone.png" alt="coding in iphone" width="870" className="relative top-20"></StaticImage>
+            <StaticImage src="../images/coding-in-iphone.png" alt="coding in iphone" width="870" placeholder="none" className="relative top-20"></StaticImage>
           </div>
 
           {/* 云桌面 Section */}
           <div className="bg-brand-blue4 pt-8 pb-20 text-center">
             <SectionTitle section={sectionTitleContent[2]} styleName="lg:mb-48"/>
-            <StaticImage src="../images/cloud-desktop.svg" alt="cloud desktop" width="1480" className="mt-20 lg:mt-4"></StaticImage>
+            <StaticImage src="../images/cloud-desktop.svg" alt="cloud desktop" width="1480" placeholder="none" className="mt-20 lg:mt-4"></StaticImage>
           </div>
 
           <div className="bg-brand-dark pt-8">
@@ -413,7 +413,7 @@ const IndexPage = () => {
           <div className="bg-white py-8">
             <SectionTitle section={sectionTitleContent[3]} styleName="lg:mb-48"/>
             <div className="pt-36 pb-20 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-24 text-center" >
-              <StaticImage src="../images/layout-demo.png" alt="layout demo" width="1150" className=""></StaticImage>
+              <StaticImage src="../images/layout-demo.png" alt="layout demo" width="1150" placeholder="none"></StaticImage>
               <div className="text-base text-left grid grid-cols-6 mt-20">
                 <div className="col-span-6 lg:col-span-5">
                   <p className="leading-relaxed">
@@ -435,8 +435,8 @@ const IndexPage = () => {
             <SectionTitle section={sectionTitleContent[4]} styleName="lg:mb-40"/>
             <div className="pt-36 pb-0 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20 text-center" >
               <div className="grid grid-cols-2">
-                <StaticImage src="../images/element-dotmesh-1.png" alt="dot mesh 1" width="600" className="relative lg:-ml-8 lg:w-4/5"></StaticImage>
-                <StaticImage src="../images/element-dotmesh-2.png" alt="dot mesh 2" width="600" className="lg:w-4/5"></StaticImage>
+                <StaticImage src="../images/element-dotmesh-1.png" alt="dot mesh 1" width="600" placeholder="none" className="relative lg:-ml-8 lg:w-4/5"></StaticImage>
+                <StaticImage src="../images/element-dotmesh-2.png" alt="dot mesh 2" width="600" placeholder="none" className="lg:w-4/5"></StaticImage>
               </div>
               <div className="text-base text-left grid grid-cols-6 mt-16">
                 <div className="col-span-6 lg:col-span-5">
@@ -471,7 +471,7 @@ const IndexPage = () => {
                   ))}
                 </nav>
               </div>
-              <StaticImage src="../images/dotmesh-demo1.png" alt="dot mesh demo 1" width="1600" className=""></StaticImage>
+              <StaticImage src="../images/dotmesh-demo1.png" alt="dot mesh demo 1" placeholder="none" width="1600"></StaticImage>
             </div>
           </div>  
 
@@ -479,7 +479,7 @@ const IndexPage = () => {
           <div className="bg-white py-8">
             <SectionTitle section={sectionTitleContent[5]} styleName="lg:mb-40"/>
             <div className="pt-36 pb-0 mx-auto max-w-7xl px-4 overflow-hidden sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20">
-              <StaticImage src="../images/color-platten.png" alt="color platten" width="613" className=""></StaticImage>
+              <StaticImage src="../images/color-platten.png" alt="color platten" placeholder="none" width="613"></StaticImage>
               <div className="text-base text-left grid grid-cols-6 mt-2 -mb-28">
                 <div className="col-span-6 lg:col-span-4 z-10">
                   <p className="leading-relaxed">
@@ -497,7 +497,7 @@ The auxiliary color is the adjacent color of the brand color, which enhances the
                   </Link>
                 </div>
                 <div className="text-center col-span-6 lg:col-span-2">
-                  <StaticImage src="../images/symbol-number3.png" alt="a symbol about number 3" width="630" className="relative lg:w-630px lg:-top-56 lg:-left-28"></StaticImage> 
+                  <StaticImage src="../images/symbol-number3.png" alt="a symbol about number 3" width="630" placeholder="none" className="relative lg:w-630px lg:-top-56 lg:-left-28"></StaticImage> 
                 </div>
               </div>
             </div>
@@ -510,7 +510,7 @@ The auxiliary color is the adjacent color of the brand color, which enhances the
               <div className="pt-36 pb-32 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20" >
                 <div className="text-base text-left grid grid-cols-6 mt-2 lg:pt-128">
                   <div className="text-center col-span-6 lg:col-span-1">
-                      <StaticImage src="../images/texture-img1.png" alt="texture image 1" width="" className="relative my-20 lg:my-0 lg:w-630px lg:-top-96 lg:-left-44"></StaticImage>
+                      <StaticImage src="../images/texture-img1.png" alt="texture image 1" placeholder="none" className="relative my-20 lg:my-0 lg:w-630px lg:-top-96 lg:-left-44"></StaticImage>
                   </div>
                   <div className="col-span-6 z-10 lg:col-span-5 lg:text-right">
                     <p className="leading-relaxed">
@@ -529,11 +529,11 @@ The auxiliary color is the adjacent color of the brand color, which enhances the
             <div className="pt-36 pb-12 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-32" >
               <div className="grid grid-cols-8">
                 <div className="col-span-full lg:col-start-1 lg:col-end-4">
-                  <StaticImage src="../images/texture-video-cover.png" alt="video cover" width="" className="relative"></StaticImage>
+                  <StaticImage src="../images/texture-video-cover.png" alt="video cover" placeholder="none" className="relative"></StaticImage>
                   <p className="text-sm lg:text-xs mt-6 pl-8">*点击观看材质与动画实例</p>
                 </div>
                 <div className="hidden lg:block col-start-6 col-end-9">
-                  <StaticImage src="../images/texture-img2.png" alt="texture image 2" width="" className="relative "></StaticImage>
+                  <StaticImage src="../images/texture-img2.png" alt="texture image 2" placeholder="none" className="relative "></StaticImage>
                 </div>
               </div>
             </div>
@@ -543,7 +543,7 @@ The auxiliary color is the adjacent color of the brand color, which enhances the
           <div className="bg-white py-8">
             <SectionTitle section={sectionTitleContent[7]} styleName="lg:mb-40"/>
             <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20" >
-              <StaticImage src="../images/font-img.png" alt="font image" width="613" className=""></StaticImage>
+              <StaticImage src="../images/font-img.png" alt="font image" width="613" placeholder="none" ></StaticImage>
               <div className="text-base text-left grid grid-cols-6 mt-2 -mb-28">
                 <div className="col-span-6 lg:col-span-5">
                   <p className="leading-relaxed">
@@ -569,19 +569,19 @@ At the same time, in the operational design materials, Tencent fonts can be appr
               <div className="grid grid-cols-4">
                 <div className="grid px-4 col-span-2 lg:col-span-1">
                   <p className="text-center mb-4">基本形象</p>
-                  <StaticImage src="../images/coding-avatar-1.png" alt="coding avatar" width="" className=""></StaticImage>
+                  <StaticImage src="../images/coding-avatar-1.png" alt="coding avatar" placeholder="none"></StaticImage>
                 </div>
                 <div className="grid px-4 col-span-2 lg:col-span-1">
                   <p className="text-center mb-4">个性化形象</p>
-                  <StaticImage src="../images/coding-avatar-2.png" alt="coding avatar" width="" className=""></StaticImage>
+                  <StaticImage src="../images/coding-avatar-2.png" alt="coding avatar" placeholder="none"></StaticImage>
                 </div>
                 <div className="grid px-4 col-span-2 lg:col-span-1">
                   <p className="text-center mb-4">商务化形象</p>
-                  <StaticImage src="../images/coding-avatar-3.png" alt="coding avatar" width="" className=""></StaticImage>
+                  <StaticImage src="../images/coding-avatar-3.png" alt="coding avatar" placeholder="none"></StaticImage>
                 </div>
                 <div className="grid px-4 col-span-2 lg:col-span-1">
                   <p className="text-center mb-4">客服形象</p>
-                  <StaticImage src="../images/coding-avatar-4.png" alt="coding avatar" width="" className=""></StaticImage>
+                  <StaticImage src="../images/coding-avatar-4.png" alt="coding avatar" placeholder="none"></StaticImage>
                 </div>
               </div>
               <div className="text-base text-left grid grid-cols-6 mt-12 -mb-28">
@@ -606,7 +606,7 @@ At the same time, in the operational design materials, Tencent fonts can be appr
               <div className="z-10 py-8 w-full">
                 <SectionTitle section={sectionTitleContent[9]} styleName="lg:mb-128"/>
                 <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-80" >
-                  <StaticImage src="../images/monkit-logo.png" alt="monkit logo" width="520" className="max-w-60%"></StaticImage>
+                  <StaticImage src="../images/monkit-logo.png" alt="monkit logo" width="520" placeholder="none" className="max-w-60%"></StaticImage>
                   <div className="text-base text-left grid grid-cols-6 mt-24 -mb-28">
                     <div className="col-span-6 lg:col-span-4">
                       <p className="leading-relaxed">
@@ -633,7 +633,7 @@ At the same time, in the operational design materials, Tencent fonts can be appr
 
           {/* Footer Section */}
           <div className="bg-footer-bg bg-center bg-cover pt-20 pb-40 text-center">           
-              <StaticImage src="../images/home-footer-logo.png" alt="footer logo" width="500" className=""></StaticImage>
+              <StaticImage src="../images/home-footer-logo.png" alt="footer logo" placeholder="none" width="500"></StaticImage>
           </div>
 
         </main>
