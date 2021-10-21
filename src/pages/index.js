@@ -5,6 +5,7 @@ import sal from "gatsby-plugin-scroll-reveal";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import classNames from "classnames";
+import { homeSectionTitleEn } from '../components/style.module.css'
 
 import PureMotion from "../assets/pure-motion.mp4"
 import DynamicMotion from "../assets/dynamic-motion-2.mp4"
@@ -133,7 +134,7 @@ const SectionTitle = ({section, styleName}) => {
     <div className={`z-10 mx-auto max-w-screen-2xl px-4 text-center lg:sticky top-0 lg:text-left lg:mb-14 ${styleName}`}>
       <div className="flex flex-col w-full mt-20 lg:mt-6 lg:w-auto lg:flex-row lg:absolute">
         <h2 className="font-semibold text-4xl lg:text-3xl lg:w-1 lg:order-last">{section.titleCN}</h2>
-        <p className="font-light uppercase opacity-10 mt-2 text-3xl lg:text-3xl lg:mt-0 lg:writing-mode-tb">{section.titleEN}</p>
+        <p className={`font-light uppercase opacity-10 mt-2 text-3xl lg:text-3xl lg:mt-0 ${homeSectionTitleEn}`}>{section.titleEN}</p>
       </div>
     </div>
   )
@@ -149,6 +150,59 @@ const PrimaryButton = ({color, styleName, children}) => {
     </button>
   )
 }
+
+class Tabs extends React.Component{
+  state ={
+    activeTab: this.props.children[0].props.label
+  }
+  changeTab = (tab) => {
+
+    this.setState({ activeTab: tab });
+  };
+  render(){
+    
+    let content;
+    let buttons = [];
+    return (
+      <div className="flex flex-col items-center">
+        {React.Children.map(this.props.children, child =>{
+          buttons.push(child.props.label)
+          if (child.props.label === this.state.activeTab) content = child.props.children
+        })}
+        <TabButtons activeTab={this.state.activeTab} buttons={buttons} changeTab={this.changeTab}/>
+        <div>{content}</div>
+      </div>
+    );
+  }
+}
+
+
+const TabButtons = ({buttons, changeTab, activeTab}) =>{
+  return(
+    <nav className="-mb-px flex justify-center space-x-12">
+    {buttons.map(button =>{
+       return <button className={classNames(
+        button === activeTab
+          ? 'border-brand-blue2 text-black text-2xl'
+          : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 relative',
+          'whitespace-nowrap py-4 px-1 border-b-4 font-medium text-sm'
+        )} 
+        onClick = {()=>changeTab(button) }>
+          {button}
+        </button>
+    })}
+    </nav>
+  )
+}
+
+const Tab = props =>{
+  return(
+    <React.Fragment>
+      {props.children}
+    </React.Fragment>
+  )
+}
+ 
 
 // markup
 const IndexPage = () => {
@@ -432,8 +486,8 @@ const IndexPage = () => {
 
           {/* 元素 Section */}
           <div className="bg-white pt-8">
-            <SectionTitle section={sectionTitleContent[4]} styleName="lg:mb-40"/>
-            <div className="pt-36 pb-0 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20 text-center" >
+            <SectionTitle section={sectionTitleContent[4]} styleName="lg:mb-48"/>
+            <div className="pt-36 pb-0 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-28 text-center" >
               <div className="grid grid-cols-2">
                 <StaticImage src="../images/element-dotmesh-1.png" alt="dot mesh 1" width="600" placeholder="none" className="relative lg:-ml-8 lg:w-4/5"></StaticImage>
                 <StaticImage src="../images/element-dotmesh-2.png" alt="dot mesh 2" width="600" placeholder="none" className="lg:w-4/5"></StaticImage>
@@ -451,27 +505,20 @@ const IndexPage = () => {
                   </Link>
                 </div>
               </div>
-
-              <div className="mt-48">
-                <nav className="-mb-px flex justify-center space-x-12" aria-label="dotmeshTab">
-                  {dotmeshTab.map((tab) => (
-                    <a
-                      key={tab.name}
-                      href={tab.href}
-                      className={classNames(
-                        tab.current
-                          ? 'border-brand-blue2 text-black text-2xl'
-                          : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 relative top-1.5',
-                        'whitespace-nowrap py-4 px-1 border-b-4 font-medium text-sm'
-                      )}
-                      aria-current={tab.current ? 'page' : undefined}
-                    >
-                      {tab.name}
-                    </a>
-                  ))}
-                </nav>
-              </div>
-              <StaticImage src="../images/dotmesh-demo1.png" alt="dot mesh demo 1" placeholder="none" width="1600"></StaticImage>
+            </div>
+            <div className="mt-40">
+              <Tabs>
+                <Tab label="系统页面应用展示">
+                  <div>
+                    <StaticImage src="../images/dotmesh-demo1.png" alt="dot mesh demo 1" placeholder="none" width="1600"></StaticImage>
+                  </div>
+                </Tab>
+                <Tab label="其它页面应用展示">
+                  <div>
+                    <StaticImage src="../images/dotmesh-demo2.png" alt="dot mesh demo 2" placeholder="none" width="1600"></StaticImage>
+                  </div>
+                </Tab>
+              </Tabs>
             </div>
           </div>  
 
