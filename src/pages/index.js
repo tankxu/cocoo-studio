@@ -1,30 +1,16 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState, Fragment } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby"
-import sal from "gatsby-plugin-scroll-reveal";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import classNames from "classnames";
 import { homeSectionTitleEn } from '../components/style.module.css'
-
+import { Popover, Transition, Dialog } from "@headlessui/react";
 import PureMotion from "../assets/pure-motion.mp4"
 import DynamicMotion from "../assets/dynamic-motion-2.mp4"
 import ThinkingMotion from "../assets/thinking-motion.mp4"
-
-
-import { Fragment } from "react";
-import { Popover, Transition } from "@headlessui/react";
-import {
-  CloudUploadIcon,
-  CogIcon,
-  LockClosedIcon,
-  MenuIcon,
-  RefreshIcon,
-  ServerIcon,
-  ShieldCheckIcon,
-  XIcon,
-} from "@heroicons/react/outline";
-import { ChevronRightIcon, ExternalLinkIcon } from "@heroicons/react/solid";
+import CIFVideo from "../assets/coding-cif.mp4"
+import {MenuIcon, XIcon, CheckIcon} from "@heroicons/react/outline";
 
 const navigation = [
   { name: "设计语言", href: "/" },
@@ -100,12 +86,12 @@ const sectionTitleContent = [
     titleCN: "开源与社区",
     titleEN: "OPEN SOURCE AND COMMUNITY",
   },
-]
+];
 
 const dotmeshTab = [
   { name: '系统页面应用展示', href: '#', current: true },
   { name: '其它页面应用展示', href: '#', current: false },
-]
+];
 
 
 
@@ -151,16 +137,16 @@ const PrimaryButton = ({color, styleName, children}) => {
   )
 }
 
+
+/* Tabs -- Start */
 class Tabs extends React.Component{
-  state ={
+  state = {
     activeTab: this.props.children[0].props.label
   }
   changeTab = (tab) => {
-
     this.setState({ activeTab: tab });
   };
   render(){
-    
     let content;
     let buttons = [];
     return (
@@ -175,7 +161,6 @@ class Tabs extends React.Component{
     );
   }
 }
-
 
 const TabButtons = ({buttons, changeTab, activeTab}) =>{
   return(
@@ -202,12 +187,81 @@ const Tab = props =>{
     </React.Fragment>
   )
 }
- 
+/* Tabs -- End */
+
+const VideoModal = ({ show, onClose }) => {
+  // let [open, setOpen] = useState(true)
+
+  return (
+    <Transition.Root show={show} as={Fragment}>
+      <Dialog as="div" className="fixed z-10 inset-0" onClose={onClose}>
+        <div className="flex overflow-hidden">
+          <Transition.Child
+            as={Fragment}
+            enter="ease-in duration-700"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-out duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <Dialog.Overlay className="fixed inset-0 bg-white transition-opacity" />
+          </Transition.Child>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-in-out duration-700"
+            enterFrom="opacity-0 scale-150"
+            enterTo="opacity-100 scale-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100 translate-y-0 scale-100 sm:scale-100"
+            leaveTo="opacity-0 translate-y-4 scale-150 sm:translate-y-0 sm:scale-95"
+          >
+            <div className="inline-block transform transition-al">
+              <div className="grid w-screen h-screen place-items-center px-10">
+                <video 
+                  playsInline
+                  autoPlay
+                  muted
+                  preload="auto"
+                  width="auto"
+                  controls
+                  src={CIFVideo} 
+                  className="w-auto h-auto max-w-full max-h-[calc(100vh-5rem)] rounded-[2.5rem]"
+                />
+              </div>
+            </div>
+          </Transition.Child>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-in duration-700"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-out duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <button
+              type="button"
+              className="absolute group right-4 top-4 w-14 h-14 rounded-[1.25rem] bg-brand-dark text-white grid place-items-center focus:outline-none focus:ring-2 focus:ring-offset-2"
+              onClick={() => onClose()}
+            >
+              <XIcon className="h-6 w-6 transition duration-300 ease-in-out group-hover:rotate-90" aria-hidden="true" />
+            </button>
+          </Transition.Child>
+        </div>
+      </Dialog>
+    </Transition.Root>
+  )
+}
+
+
 
 // markup
 const IndexPage = () => {
+
   gsap.registerPlugin(ScrollTrigger);
   const ideologySection = useRef(null)
+  const [showModal, toggleModal] = useState(false);
 
   useEffect(() => {
     const ideologySectionElement = ideologySection.current
@@ -233,6 +287,7 @@ const IndexPage = () => {
     )
 
     const videoState = []
+
     for (let i = 0; i <= 2; i++) {
       let triggerId = `#ideology-video-${i}`
       let videoElement = ideologySectionElement.querySelector(triggerId)
@@ -575,7 +630,8 @@ The auxiliary color is the adjacent color of the brand color, which enhances the
             </div>
             <div className="pt-36 pb-12 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-32" >
               <div className="grid grid-cols-8">
-                <div className="col-span-full lg:col-start-1 lg:col-end-4">
+                <div className="col-span-full lg:col-start-1 lg:col-end-4" onClick={() => toggleModal(true)}>
+                  <VideoModal show={showModal} onClose={() => toggleModal(false)}/>
                   <StaticImage src="../images/texture-video-cover.png" alt="video cover" placeholder="none" className="relative"></StaticImage>
                   <p className="text-sm lg:text-xs mt-6 pl-8">*点击观看材质与动画实例</p>
                 </div>
