@@ -11,6 +11,7 @@ import DynamicMotion from "../assets/dynamic-motion-2.mp4"
 import ThinkingMotion from "../assets/thinking-motion.mp4"
 import CIFVideo from "../assets/coding-cif.mp4"
 import {MenuIcon, XIcon, CheckIcon} from "@heroicons/react/outline";
+import ProductMatrixImage from '../images/product-matrix.svg';
 
 const navigation = [
   { name: "设计语言", href: "/" },
@@ -476,8 +477,8 @@ const IndexPage = () => {
             <SectionTitle section={sectionTitleContent[1]} styleName="text-white lg:mb-28" />
             <div className="mx-auto max-w-7xl px-4 text-center overflow-hidden sm:px-6 lg:px-32 lg:-mt-14">
               <h3 className="text-white text-4xl mt-24 mb-16"><span>云端工作美学</span><IconJoint className="inline-block mx-5 relative -top-1" /><span>产品倾向</span></h3>
-              <div id="product-matrix">
-                  <StaticImage src="../images/product-matrix.png" alt="Product matrix" width="868" placeholder="none" />
+              <div id="product-matrix" className="flex justify-center">
+                  <object type="image/svg+xml" data={ProductMatrixImage}>Product Matrix Image</object>
               </div>
               <StaticImage src="../images/logo-tencent-coding.png" alt="Tencent Cloud and Coding logo" width="680" placeholder="none" className="mt-36"/>
               <div className="text-base text-brand-blue3 mt-14">
