@@ -267,23 +267,43 @@ const IndexPage = () => {
   useEffect(() => {
     const ideologySectionElement = ideologySection.current
 
+    // gsap.fromTo(
+    //   "#product-matrix",
+    //   {
+    //     y: 60,
+    //     opacity: 0,
+    //     rotation: -40,
+    //   },
+    //   {
+    //     scrollTrigger: {
+    //       trigger: "#product-matrix",
+    //       start: "top 70%",
+    //       toggleActions: "play none none reverse",
+    //     },
+    //     y: 0,
+    //     opacity: 1,
+    //     rotation: 0,
+    //     ease: "back.out(2)",
+    //   }
+    // )
     gsap.fromTo(
       "#product-matrix",
       {
         y: 60,
         opacity: 0,
-        rotation: -40,
+        scale: 2,
       },
       {
         scrollTrigger: {
           trigger: "#product-matrix",
-          start: "top 70%",
+          start: "top 50%",
           toggleActions: "play none none reverse",
         },
         y: 0,
         opacity: 1,
-        rotation: 0,
+        scale: 1,
         ease: "back.out(2)",
+        duration: 0.6,
       }
     )
 
