@@ -17,6 +17,7 @@
   }
 }
 
+/* 开启 tailwind JIT 模式后下面有关 scroll-snap 的样式全部失效，使用 style.module.css 代替。 */
 @layer utilities {
   .scroll-snap-none {
     scroll-snap-type: none;
