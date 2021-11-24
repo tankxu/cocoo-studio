@@ -18,6 +18,14 @@ module.exports = {
     "gatsby-plugin-scroll-reveal",
     "gatsby-transformer-sharp",
     {
+      resolve: 'gatsby-source-graphcms',
+      options: {
+        endpoint: process.env.GRAPHCMS_ENDPOINT ||
+        'https://api-ap-northeast-1.graphcms.com/v2/ckwd8bmqd50z601xqgist0gvs/master',
+        downloadLocalImages: true,
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",

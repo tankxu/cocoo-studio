@@ -1,88 +1,90 @@
-import * as React from "react"
-import { Link } from "gatsby"
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+import React from 'react'
+import { graphql, Link } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-
-const features = [
-  { name: 'Origin', description: 'Designed by Good Goods, Inc.' },
-  { name: 'Material', description: 'Solid walnut base with rare earth magnets and powder coated steel card cover' },
-  { name: 'Dimensions', description: '6.25" x 3.55" x 1.15"' },
-  { name: 'Finish', description: 'Hand sanded and finished with natural oil' },
-  { name: 'Includes', description: 'Wood card tray and 3 refill packs' },
-  { name: 'Considerations', description: 'Made from natural materials. Grain and color vary with each item.' },
-]
-
-// markup
-const NotFoundPage = () => {
+const BlogPage = ({ data: { blogPosts } }) => {
   return (
-    <main style={pageStyles}>
-      <title>Colog 氪落格</title>
-      <h1 style={headingStyles}>Colog 氪落格</h1>
-      <div className="bg-white">
-      <div className="max-w-2xl mx-auto py-24 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 lg:grid-cols-2">
-        <div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Technical Specifications</h2>
-          <p className="mt-4 text-gray-500">
-            The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards. The powder coated
-            steel divider separates active cards from new ones, or can be used to archive important task lists.
+    <div className="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8 min-h-screen">
+      <div className="absolute inset-0">
+        <div className="bg-white h-1/3 sm:h-2/3 max-h-[500px]" />
+      </div>
+      <div className="relative max-w-7xl mx-auto">
+        <div className="text-center">
+          <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">CoCoo Studio Blog</h2>
+          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.
           </p>
-
-          <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-            {features.map((feature) => (
-              <div key={feature.name} className="border-t border-gray-200 pt-4">
-                <dt className="font-medium text-gray-900">{feature.name}</dt>
-                <dd className="mt-2 text-sm text-gray-500">{feature.description}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
-        <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
-          <img
-            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg"
-            alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
-            className="bg-gray-100 rounded-lg"
-          />
-          <img
-            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-02.jpg"
-            alt="Top down view of walnut card tray with embedded magnets and card groove."
-            className="bg-gray-100 rounded-lg"
-          />
-          <img
-            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-03.jpg"
-            alt="Side of walnut card tray with card groove and recessed card area."
-            className="bg-gray-100 rounded-lg"
-          />
-          <img
-            src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-04.jpg"
-            alt="Walnut card tray filled with cards and card angled in dedicated groove."
-            className="bg-gray-100 rounded-lg"
-          />
+        <div className="mt-12 max-w-3xl mx-auto grid gap-5">
+          {blogPosts.nodes.map((post) => {
+            let d = new Date(post.postDate)
+            let friendyDate = `${d.getFullYear()} 年 ${d.getMonth()} 月 ${d.getDay()} 日`
+
+            return(
+            <Link to={post.weChatPostLink}>
+              <div key={post.title} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                <div className="flex-shrink-0">
+                  <GatsbyImage className=" max-h-128 w-full object-cover" image={getImage(post.cover)} alt={post.title} />
+                </div>
+                <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+                  <div className="flex-1">
+                    <a href={post.href} className="block mt-2">
+                      <p className="text-2xl font-semibold text-gray-900">{post.title}</p>
+                      <p className="mt-3 text-sm text-gray-500 leading-6">{post.brief}</p>
+                    </a>
+                  </div>
+                  <div className="mt-6 flex items-center">
+                    <div className="flex-shrink-0">
+                      {post.authors.map(author => (
+                        <GatsbyImage className="h-10 w-10 rounded-full float-left mr-2" image={getImage(author.avatar)} alt={author.name} />
+                      ))}
+                    </div>
+                    <div className="ml-1">
+                      <p className="text-sm font-medium text-gray-900">
+                        {post.authors.map(author => author.name).join(", ")}
+                      </p>
+                      <div className="flex space-x-1 text-sm text-gray-500">
+                        <time dateTime={d}>{friendyDate}</time>
+                        <span aria-hidden="true">&middot;</span>
+                        <span>{post.readingTime} min read</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          )})}
         </div>
       </div>
     </div>
-    </main>
   )
 }
 
-export default NotFoundPage
+export const query = graphql`
+  query BlogQuery {
+    blogPosts: allGraphCmsBlogPost(
+      filter: {}
+    ) {
+      nodes {
+        title
+        weChatPostLink
+        postDate
+        brief
+        readingTime
+        cover {
+          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+        authors {
+          name
+          avatar {
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+          }
+        }
+
+      }
+    }
+  }
+`
+
+export default BlogPage

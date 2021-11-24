@@ -30,6 +30,7 @@
     "gatsby-plugin-scroll-reveal": "^0.0.7",
     "gatsby-plugin-sharp": "^3.14.0",
     "gatsby-source-filesystem": "^3.14.0",
+    "gatsby-source-graphcms": "^2.6.0",
     "gatsby-transformer-sharp": "^3.14.0",
     "gsap": "^3.8.0",
     "netlify-cms-app": "^2.15.45",
