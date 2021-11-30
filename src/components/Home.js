@@ -3,7 +3,7 @@ import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import classNames from "classnames";
+import classnames from "classnames";
 import { homeSectionTitleEn } from '../components/style.module.css'
 import { Popover, Transition, Dialog } from "@headlessui/react";
 import PureMotion from "../assets/pure-motion.mp4"
@@ -167,7 +167,7 @@ const TabButtons = ({buttons, changeTab, activeTab}) =>{
   return(
     <nav className="-mb-px flex justify-center space-x-12">
     {buttons.map(button =>{
-       return <button className={classNames(
+       return <button className={classnames(
         button === activeTab
           ? 'border-brand-blue2 text-black text-2xl'
           : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 relative',
