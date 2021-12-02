@@ -3,3 +3,32 @@
     writing-mode: tb-rl;
   }
 }
+
+.wiggle-on-hover {
+  animation: wiggle 2s ease-in-out infinite;
+  animation-play-state: paused;
+  transform: rotate(0);
+}
+
+.wiggle-on-hover:hover {
+  animation-play-state: running;
+}
+
+@keyframes wiggle {
+  0%,
+  42%,
+  100% {
+    transform: rotate(0);
+  }
+  3%,
+  15%,
+  27%,
+  39% {
+    transform: rotate(3deg);
+  }
+  9%,
+  21%,
+  33% {
+    transform: rotate(-3deg);
+  }
+}
