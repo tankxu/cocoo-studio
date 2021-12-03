@@ -6,13 +6,13 @@
 
 .wiggle-on-hover {
   animation: wiggle 2s ease-in-out infinite;
-  animation-play-state: paused;
+  /* animation-play-state: paused; */
   transform: rotate(0);
 }
 
-.wiggle-on-hover:hover {
+/* .wiggle-on-hover:hover {
   animation-play-state: running;
-}
+} */
 
 @keyframes wiggle {
   0%,

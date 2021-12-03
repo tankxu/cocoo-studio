@@ -287,20 +287,21 @@ const IndexPage = () => {
       {
         y: 60,
         opacity: 0,
-        scale: 1.8,
+        scale: 1.4,
         rotation: -40,
       },
       {
         scrollTrigger: {
           trigger: "#product-matrix",
-          start: "top 0%",
+          start: "center bottom+=100px",
           toggleActions: "play none none reverse",
+          once: true,
         },
         y: 0,
         opacity: 1,
         scale: 1,
         rotation: 0,
-        ease: "back.out(2)",
+        // ease: "back.out(2)",
         duration: 0.6,
       }
     );

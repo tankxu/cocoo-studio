@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState, useRef } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import classnames from "classnames";
 import { Popover, Transition } from "@headlessui/react";
@@ -9,7 +9,7 @@ import { wiggleOnHover } from "./style.module.css";
 const navigation = [
   { name: "设计语言", href: "/" },
   { name: "设计博客", href: "/blog" },
-  { name: "CoCoo商店", href: "/store" },
+  { name: "CoStore", href: "/store" },
   { name: "Monkit UI", href: "/monkit" },
 ];
 
@@ -42,7 +42,38 @@ const HeaderLink = ({ title, link, activated, dark }) => {
 const Header = () => {
   const page = useLocation().pathname;
   const isHome = page === "/";
-  // const [wiggleLogo, setWiggleLogo] = useState(false);
+  const [wiggleLogo, setWiggleLogo] = useState(false);
+  const ideologySection = useRef(null);
+
+  const addWiggleClass = () => {
+    setWiggleLogo(true);
+  };
+
+  const removeWiggleClass = () => {
+    setWiggleLogo(false);
+  };
+
+  useEffect(() => {
+    const logoHorizontal = document.querySelector(`#logo-horizontal`);
+    const logoStacked = document.querySelector(`#logo-stacked`);
+
+    if (logoHorizontal) {
+      logoHorizontal.addEventListener(`mouseenter`, addWiggleClass, true);
+      logoHorizontal.addEventListener(`mouseleave`, removeWiggleClass, true);
+    }
+
+    if (logoStacked) {
+      logoStacked.addEventListener(`mouseenter`, addWiggleClass, true);
+      logoStacked.addEventListener(`mouseleave`, removeWiggleClass, true);
+    }
+
+    return () => {
+      logoHorizontal.removeEventListener(`mouseenter`, addWiggleClass, true);
+      logoHorizontal.removeEventListener(`mouseleave`, removeWiggleClass, true);
+      logoStacked.removeEventListener(`mouseenter`, addWiggleClass, true);
+      logoStacked.removeEventListener(`mouseleave`, removeWiggleClass, true);
+    };
+  }, []);
 
   return (
     <div
@@ -50,7 +81,7 @@ const Header = () => {
         isHome
           ? "overflow-hidden"
           : "border-b-[1px] border-gray-200 bg-position-960px fixed z-10",
-        "w-full flex flex-col md:flex-col-reverse transition-all duration-500 bg-size-hero bg-white bg-gradient-to-b from-gradient-blue1 to-gradient-blue2 bg-no-repeat"
+        "w-full flex flex-col md:flex-col-reverse transition-all duration-700 bg-size-hero bg-white bg-gradient-to-b from-gradient-blue1 to-gradient-blue2 bg-no-repeat"
       )}
     >
       <Popover
@@ -64,9 +95,11 @@ const Header = () => {
           )}
         >
           <div
+            id="logo-horizontal"
             className={classnames(
               "opacity-0 transition-all duration-500 md:absolute left-6",
-              isHome ? "" : "opacity-100 delay-500"
+              isHome ? "" : "opacity-100 delay-500",
+              wiggleLogo ? wiggleOnHover : ""
             )}
           >
             <Link to="/">
@@ -76,7 +109,7 @@ const Header = () => {
                 alt="Cocoo Studio Logo"
                 placeholder="none"
                 objectFit="contain"
-                className={`h-[72px] w-[188px] ${wiggleOnHover}`}
+                className="h-[72px] w-[188px]"
               />
             </Link>
           </div>
@@ -139,7 +172,7 @@ const Header = () => {
               "absolute"
             )}
           >
-            <button class="font-semibold text-white px-6 py-3.5 bg-gradient-to-br from-brand-blue2 to-brand-blue1 rounded-full shadow-lightbutton hover:opacity-80">
+            <button className="font-semibold text-white px-6 py-3.5 bg-gradient-to-br from-brand-blue2 to-brand-blue1 rounded-full shadow-lightbutton hover:opacity-80">
               CODING 官网
             </button>
           </a>
@@ -191,18 +224,20 @@ const Header = () => {
           isHome
             ? "max-h-[880px] pt-10 pb-20"
             : "max-h-0 opacity-0 pointer-events-none",
-          "text-center mx-auto max-w-7xl px-4 sm:px-14 lg:px-32 transition-all duration-500"
+          "text-center mx-auto max-w-7xl px-4 sm:px-14 lg:px-32 transition-all duration-700"
         )}
       >
-        <Link to="/">
-          <span className="sr-only">CocooStudio</span>
-          <StaticImage
-            src="../images/cocoostudio-logo-stacked.png"
-            alt="Cocoo Studio Logo"
-            width="146"
-            placeholder="none"
-          />
-        </Link>
+        <div className={classnames(wiggleLogo ? wiggleOnHover : "")}>
+          <Link to="/" id="logo-stacked">
+            <span className="sr-only">CocooStudio</span>
+            <StaticImage
+              src="../images/cocoostudio-logo-stacked.png"
+              alt="Cocoo Studio Logo"
+              width="146"
+              placeholder="none"
+            />
+          </Link>
+        </div>
         <StaticImage
           src="../images/home-hero-title.png"
           alt="云端工作美学"
