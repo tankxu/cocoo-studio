@@ -17,6 +17,7 @@ module.exports = {
           blue5: "#EDF4FF",
           yellow1: "#F1C149",
           yellow2: "#E8E6E0",
+          grey7: "#606C80",
         },
         gradient: {
           blue1: "#004FA8",

@@ -32,3 +32,21 @@
     transform: rotate(-3deg);
   }
 }
+
+.hero-text-mask {
+  mask-image: url(../images/hero-title-mask.png);
+  mask-repeat: no-repeat;
+  mask-size: 34.5%;
+  mask-position: 45.2% 49%;
+}
+
+.hero-text-mask-hover {
+  mask-position: 45.2% calc(49% - 30px) !important;
+}
+
+.hero-text-mask-invert {
+  mask-image: url(../images/hero-title-mask-invert.png);
+  mask-repeat: no-repeat;
+  mask-size: 34.5%;
+  mask-position: 45.2% 49%;
+}

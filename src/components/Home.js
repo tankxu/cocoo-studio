@@ -1,18 +1,17 @@
 import React, { useRef, useEffect, useState, Fragment } from "react";
-import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import classnames from "classnames";
 import { homeSectionTitleEn } from "../components/style.module.css";
-import { Popover, Transition, Dialog } from "@headlessui/react";
+import { Transition, Dialog } from "@headlessui/react";
 import PureMotion from "../assets/pure-motion.mp4";
 import DynamicMotion from "../assets/dynamic-motion-2.mp4";
 import ThinkingMotion from "../assets/thinking-motion.mp4";
 import CIFVideo from "../assets/coding-cif.mp4";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import ProductMatrixImage from "../images/product-matrix.svg";
-import Header from "./header";
+import { XIcon } from "@heroicons/react/outline";
+import ProductMatrixSVG from "../images/product-matrix.inline.svg";
 
 const navigation = [
   { name: "设计语言", href: "/" },
@@ -285,7 +284,7 @@ const IndexPage = () => {
     gsap.fromTo(
       "#product-matrix",
       {
-        y: 60,
+        y: 0,
         opacity: 0,
         scale: 1.4,
         rotation: -40,
@@ -301,8 +300,47 @@ const IndexPage = () => {
         opacity: 1,
         scale: 1,
         rotation: 0,
-        // ease: "back.out(2)",
         duration: 0.6,
+      }
+    );
+
+    gsap.fromTo(
+      "#cloud-desktop-image",
+      {
+        y: 60,
+        opacity: 0,
+        scale: 0.8,
+        rotation: 24,
+      },
+      {
+        scrollTrigger: {
+          trigger: "#cloud-desktop-image",
+          start: "center 80%",
+          toggleActions: "play none none reverse",
+          once: true,
+        },
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        duration: 0.6,
+      }
+    );
+
+    gsap.fromTo(
+      "#coding-in-iphone",
+      {
+        y: 200,
+      },
+      {
+        scrollTrigger: {
+          trigger: "#coding-in-iphone",
+          start: "top bottom",
+          end: "center top",
+          toggleActions: "play reverse play reverse",
+          scrub: 0.5,
+        },
+        y: 0,
       }
     );
 
@@ -357,11 +395,11 @@ const IndexPage = () => {
               {ideology.map((item, i) => (
                 <div className="justify-between mb-48 lg:flex">
                   <div className="max-w-2xl mr-6 text-base">
-                    <h3 className="mb-14 text-2xl font-semibold sm:text-6xl">
+                    <h3 className="mb-8 text-2xl font-semibold sm:text-6xl">
                       {item.name}
                     </h3>
                     <p className="leading-relaxed">{item.descCN}</p>
-                    <p className="mt-8">{item.descEN}</p>
+                    <p className="mt-8 text-brand-grey7">{item.descEN}</p>
                   </div>
                   <div className="w-full grid place-items-center min-w-88">
                     <video
@@ -391,9 +429,7 @@ const IndexPage = () => {
                 <span>产品倾向</span>
               </h3>
               <div id="product-matrix" className="flex justify-center">
-                <object type="image/svg+xml" data={ProductMatrixImage}>
-                  Product Matrix Image
-                </object>
+                <ProductMatrixSVG />
               </div>
               <StaticImage
                 src="../images/logo-tencent-coding.png"
@@ -407,8 +443,8 @@ const IndexPage = () => {
                   CODING
                   logo由来已久，代表了code文化，即“严谨，高效，智慧”，新的标识更加简洁明快，在各类屏幕和印刷尺寸下，都可以迅速识别，我们推荐在不同的场合下使用不同的logo排版组合和色彩搭配，以便统一企业印象。
                 </p>
-                <p className="mt-8">
-                  The coding logo has been around for a long time and represents
+                <p className="mt-8 opacity-60">
+                  The CODING logo has been around for a long time and represents
                   the code culture, that is, "rigorous, efficient, and
                   intelligent". The new logo is more concise and clear. It can
                   be recognized quickly on various screens and print sizes. We
@@ -427,13 +463,15 @@ const IndexPage = () => {
 
           {/* 产品 Section 过渡 */}
           <div className="text-center bg-brand-dark relative z-10 bg-coding-logo-construct bg-112% bg-bottom bg-no-repeat 2xl:bg-2xl">
-            <StaticImage
-              src="../images/coding-in-iphone.png"
-              alt="coding in iphone"
-              width="870"
-              placeholder="blurred"
-              className="relative top-20"
-            ></StaticImage>
+            <div id="coding-in-iphone">
+              <StaticImage
+                src="../images/coding-in-iphone.png"
+                alt="coding in iphone"
+                width="870"
+                placeholder="blurred"
+                className="relative top-20"
+              ></StaticImage>
+            </div>
           </div>
 
           {/* 云桌面 Section */}
@@ -442,13 +480,15 @@ const IndexPage = () => {
               section={sectionTitleContent[2]}
               styleName="lg:mb-48"
             />
-            <StaticImage
-              src="../images/cloud-desktop.svg"
-              alt="cloud desktop"
-              width="1480"
-              placeholder="blurred"
-              className="mt-20 lg:mt-4"
-            ></StaticImage>
+            <div id="cloud-desktop-image">
+              <StaticImage
+                src="../images/cloud-desktop.svg"
+                alt="cloud desktop"
+                width="1480"
+                placeholder="blurred"
+                className="mt-20 lg:mt-4"
+              ></StaticImage>
+            </div>
           </div>
 
           <div className="bg-brand-dark pt-8">
@@ -457,7 +497,7 @@ const IndexPage = () => {
                 <p className="leading-relaxed">
                   云工作美学的核心体验化呈现就是“云桌面”。这种桌面在于将用户的工作资产高效收纳并及时反馈动态，能够适应用户工作场景，也能为用户思考，充分体现每个用户的工作价值，也就是“纯净，动态，思考”这三个核心理念所追求的体验目标。在这样的目标下，无论是产品层级，控件与元素，品牌识别，又或是体验架构，都需要以”围绕企业客户中的工作角色而设计”的原则，通过塑造云工作美学，从而“持续提升每个用户的日常工作体验”。
                 </p>
-                <p className="mt-8">
+                <p className="mt-8 opacity-60">
                   The core experiential presentation of cloud work aesthetics is
                   the "cloud desktop". This kind of desktop is to efficiently
                   store the user’s work assets and timely feedback the dynamics.

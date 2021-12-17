@@ -36,7 +36,7 @@ const Shop = (props) => <div>{props.children}</div>;
 const NotFound = () => <p>Sorry, nothing here</p>;
 
 const IndexPage = () => (
-  <div>
+  <div className="antialiased">
     <Router>
       {/* <NotFound default /> */}
 

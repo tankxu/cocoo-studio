@@ -4,7 +4,14 @@ import classnames from "classnames";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link, useLocation } from "@reach/router";
-import { wiggleOnHover } from "./style.module.css";
+import {
+  wiggleOnHover,
+  heroTextMask,
+  heroTextMaskInvert,
+  heroTextMaskHover,
+} from "./style.module.css";
+import HeroTitleText1 from "../images/hero-title-text1.inline.svg";
+import HeroTitleText2 from "../images/hero-title-text2.inline.svg";
 
 const navigation = [
   { name: "设计语言", href: "/" },
@@ -43,6 +50,7 @@ const Header = () => {
   const page = useLocation().pathname;
   const isHome = page === "/";
   const [wiggleLogo, setWiggleLogo] = useState(false);
+  const [hoverCloud, setHoverCloud] = useState(false);
   const ideologySection = useRef(null);
 
   const addWiggleClass = () => {
@@ -73,6 +81,8 @@ const Header = () => {
       logoStacked.removeEventListener(`mouseenter`, addWiggleClass, true);
       logoStacked.removeEventListener(`mouseleave`, removeWiggleClass, true);
     };
+
+    // const logoStacked = document.querySelector(`#logo-stacked`);
   }, []);
 
   return (
@@ -222,7 +232,7 @@ const Header = () => {
       <div
         className={classnames(
           isHome
-            ? "max-h-[880px] pt-10 pb-20"
+            ? "max-h-[880px] pt-12 pb-24"
             : "max-h-0 opacity-0 pointer-events-none",
           "text-center mx-auto max-w-7xl px-4 sm:px-14 lg:px-32 transition-all duration-700"
         )}
@@ -238,14 +248,47 @@ const Header = () => {
             />
           </Link>
         </div>
-        <StaticImage
-          src="../images/home-hero-title.png"
-          alt="云端工作美学"
-          width="1080"
-          placeholder="none"
-          className="mt-28"
-        />
-        <div className="text-base text-brand-blue3 mx-auto mt-14 text-left max-w-5xl">
+        <div
+          className="inline-grid mt-24 group"
+          onMouseEnter={() => setHoverCloud(true)}
+          onMouseLeave={() => setHoverCloud(false)}
+        >
+          <HeroTitleText1 className="col-start-1 col-end-2 row-start-1 row-end-2 w-full h-auto" />
+          <HeroTitleText2
+            className={classnames(
+              `col-start-1 col-end-2 row-start-1 row-end-2 w-full ${heroTextMask} blur-sm fill-[#b6e0f7] transition-all duration-500 h-auto`,
+              hoverCloud ? heroTextMaskHover : null
+            )}
+          />
+          <HeroTitleText2
+            className={classnames(
+              `col-start-1 col-end-2 row-start-1 row-end-2 w-full ${heroTextMaskInvert} fill-[#fff] transition-all duration-500 h-auto`,
+              hoverCloud ? heroTextMaskHover : null
+            )}
+          />
+          <StaticImage
+            src="../images/hero-title-cloudshadow.png"
+            alt="云端工作美学"
+            placeholder="none"
+            objectFit="contain"
+            className="col-start-1 col-end-2 row-start-1 row-end-2 ml-[18.5%] w-[57.5%] h-auto mix-blend-multiply origin-bottom group-hover:scale-y-125 transition-all duration-500 pointer-events-none"
+          />
+          <StaticImage
+            src="../images/hero-title-cloud2.png"
+            alt="云端工作美学"
+            placeholder="none"
+            objectFit="contain"
+            className="col-start-1 col-end-2 row-start-1 row-end-2 ml-[18.5%] w-[57.5%] h-auto group-hover:-translate-y-5 transition-all duration-500 pointer-events-none"
+          />
+          <StaticImage
+            src="../images/hero-title-cloud1.png"
+            alt="云端工作美学"
+            placeholder="none"
+            objectFit="contain"
+            className="col-start-1 col-end-2 row-start-1 row-end-2 ml-[29.5%] w-[34.5%] h-auto transition-all duration-500 group-hover:-translate-y-7 pointer-events-none"
+          />
+        </div>
+        <div className=" text-sm sm:text-base text-white mx-auto mt-14 text-left max-w-5xl">
           <p className="leading-relaxed">
             腾讯云 CODING 专注打造DevOps SaaS
             产品服务，为企业量身打造云研发工作套件。提出的体验语言“云端工作美学”，是为了让云研发工作体验变得更加“纯净简单”，更能“动态适应”不同场景和功能服务，也能企业变得更有“文化和思考”。
