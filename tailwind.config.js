@@ -6,6 +6,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      screens: {
+        xs: "540px",
+      },
       colors: {
         brand: {
           dark: "#202B40",

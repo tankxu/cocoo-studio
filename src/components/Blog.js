@@ -34,8 +34,9 @@ const BlogPage = () => {
             CoCoo Studio Blog
           </h2>
           <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
-            libero labore natus atque, ducimus sed.
+            CoCoo 团队热衷于分享 B
+            端体验设计的经验心得与行业洞察。欢迎关注我们的公众号「Cocoo
+            Stuido」，及时获取更新通知。
           </p>
           <div className="mt-12 max-w-4xl mx-auto grid gap-5 text-left">
             {console.log(blogPosts)}

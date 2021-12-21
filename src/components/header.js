@@ -179,7 +179,7 @@ const Header = () => {
               isHome
                 ? "bottom-0 md:bottom-4 right-4 md:right-8"
                 : "bottom-[10px] right-6",
-              "absolute"
+              "hidden absolute xs:block"
             )}
           >
             <button className="font-semibold text-white px-6 py-3.5 bg-gradient-to-br from-brand-blue2 to-brand-blue1 rounded-full shadow-lightbutton hover:opacity-80">
@@ -211,17 +211,31 @@ const Header = () => {
                 </div>
               </div>
               <div className="pt-5 pb-6">
-                <div className="px-2 space-y-1">
+                <div className="space-y-1">
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
                       to={item.href}
-                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                      className={classnames(
+                        "block px-8 py-2 text-base font-medium text-gray-900 hover:bg-gray-50",
+                        page === item.href
+                          ? "cursor-not-allowed text-brand-blue1"
+                          : null
+                      )}
                     >
                       {item.name}
                     </Link>
                   ))}
                 </div>
+                <a
+                  href="https://coding.net"
+                  target="_blank"
+                  className="block px-8 mt-4 pt-5 border-t border-slate-100 xs:hidden"
+                >
+                  <button className="font-semibold text-white px-6 py-3.5 bg-gradient-to-br from-brand-blue2 to-brand-blue1 rounded-full shadow-lightbutton hover:opacity-80">
+                    CODING 官网
+                  </button>
+                </a>
               </div>
             </div>
           </Popover.Panel>

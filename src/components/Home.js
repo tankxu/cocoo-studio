@@ -12,6 +12,7 @@ import ThinkingMotion from "../assets/thinking-motion.mp4";
 import CIFVideo from "../assets/coding-cif.mp4";
 import { XIcon } from "@heroicons/react/outline";
 import ProductMatrixSVG from "../images/product-matrix.inline.svg";
+import PrimaryButton from "./primaryButton";
 
 const navigation = [
   { name: "设计语言", href: "/" },
@@ -130,21 +131,6 @@ const SectionTitle = ({ section, styleName }) => {
         </p>
       </div>
     </div>
-  );
-};
-
-const PrimaryButton = ({ color, styleName, children }) => {
-  return (
-    <button
-      type="button"
-      className={`inline-flex items-center px-10 py-4 border border-${
-        color || "brand-dark"
-      } border-opacity-50 shadow-sm text-base font-medium rounded-sm text-${
-        color || "brand-dark"
-      } transition-all hover:bg-brand-blue1 hover:bg-opacity-10 hover:border-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue1 ${styleName}`}
-    >
-      {children}
-    </button>
   );
 };
 
@@ -399,7 +385,9 @@ const IndexPage = () => {
                       {item.name}
                     </h3>
                     <p className="leading-relaxed">{item.descCN}</p>
-                    <p className="mt-8 text-brand-grey7">{item.descEN}</p>
+                    <p className="mt-8 text-brand-grey7 text-opacity-80">
+                      {item.descEN}
+                    </p>
                   </div>
                   <div className="w-full grid place-items-center min-w-88">
                     <video
@@ -453,7 +441,10 @@ const IndexPage = () => {
                   unify the corporate impression.
                 </p>
                 <Link to="">
-                  <PrimaryButton styleName="mt-12" color="brand-blue2">
+                  <PrimaryButton
+                    styleName="mt-12"
+                    color="brand-blue2 hover:bg-brand-blue1"
+                  >
                     下载标志组合包/PPT模板
                   </PrimaryButton>
                 </Link>
@@ -533,7 +524,7 @@ const IndexPage = () => {
                   <p className="leading-relaxed">
                     栅格系统是“云工作美学”特别提出的界面设计与常规内容布局方法，这一方面会打通UI视觉设计和前端开发/界面还原效果的一致性，另一方面也规范和限制了各种新界面设计时的“随意性”，将灵感和功能收纳进无形的容器中，为一致化的体验印象增加了严谨且持续的关注。
                   </p>
-                  <p className="mt-8">
+                  <p className="mt-8 text-brand-grey7 text-opacity-80">
                     The grid system is a special interface design and
                     conventional content layout method proposed by "Cloud Work
                     Aesthetics". On the one hand, it will open up the
@@ -583,7 +574,7 @@ const IndexPage = () => {
                   <p className="leading-relaxed">
                     点阵元素是“云工作美学”中最能体现“严谨与规则化”内涵的核心元素，无论在界面设计还是品牌宣传中，恰当的使用点阵排列，会增强内容或者控件布局的合理性，也能在用户的心智中留下更为精确精密的体验印象。
                   </p>
-                  <p className="mt-8">
+                  <p className="mt-8 text-brand-grey7 text-opacity-80">
                     The dot matrix element is the core element that best
                     reflects the connotation of "rigorous and regularized" in
                     the "cloud work aesthetics". Whether in interface design or
@@ -649,7 +640,7 @@ const IndexPage = () => {
                     <br />
                     辅助色为品牌色的邻近色，增强视觉的和谐度，保证品牌和体验的印象统一。
                   </p>
-                  <p className="mt-8">
+                  <p className="mt-8 text-brand-grey7 text-opacity-80">
                     We choose the following UI colors and branding colors.
                     <br />
                     The brand color is mainly blue, and red and yellow are used
@@ -704,7 +695,7 @@ const IndexPage = () => {
                     <p className="leading-relaxed">
                       CODING的服务面向众多行业，我们搭建的研发平台，是具备高可用，高扩展性的“工作容器“，所以纯净及透明的材质，是表达这种容器感的最佳选择，而材质具备流动感和色彩感，则进一步让用户感知到实际工作场景和内容的丰富多样和情感温度。
                     </p>
-                    <p className="mt-8">
+                    <p className="mt-8 text-brand-grey7 text-opacity-80">
                       Coding's services are oriented to many industries. The R&D
                       platform we build is a "work container" with high
                       availability and high scalability, so pure and transparent
@@ -777,7 +768,7 @@ const IndexPage = () => {
                     <br />
                     于此同时，在运营类设计物料中，可以在标题上适当使用腾讯字体，以保证符合腾讯文化，其余建议使用以上标准字体，以便保证大篇幅的内容可识别性。
                   </p>
-                  <p className="mt-8">
+                  <p className="mt-8 text-brand-grey7 text-opacity-80">
                     In order to better fit the brand font and convey the IT
                     engineer culture, on the product page, it is recommended to
                     use Inter font for the title; Roboto_Mono is used as a data
@@ -848,7 +839,7 @@ const IndexPage = () => {
                     洋葱猴形象包含三种基本形象，基本版，个性版，商务版。这些形象应当出现在与用户或客户沟通时的场合或相关设计方案中，包括并不限于“动态广告，运营活动，品牌周边”等场合，请勿滥用形象，请勿低龄化使用这些形象，如有不明白，请咨询Cocoo
                     Studio设计负责人。
                   </p>
-                  <p className="mt-8">
+                  <p className="mt-8 text-brand-grey7 text-opacity-80">
                     The CODING onion monkey image contains three basic images,
                     the basic version, the character version, and the business
                     version. These images should appear in occasions when
@@ -898,7 +889,7 @@ const IndexPage = () => {
                         将对外开放使用，致力于释放每个团队的潜力，共同打造
                         CODING 产品生态圈。
                       </p>
-                      <p className="mt-8">
+                      <p className="mt-8 text-brand-grey7 text-opacity-80">
                         In order to provide users with a better product
                         experience, we have completed a large number of project
                         practices and summaries, and polished a design system

@@ -1,19 +1,6 @@
 import React from "react";
-
-const PrimaryButton = ({ color, styleName, children }) => {
-  return (
-    <button
-      type="button"
-      className={`inline-flex items-center px-10 py-4 border border-${
-        color || "brand-dark"
-      } border-opacity-50 shadow-sm text-base font-medium rounded-sm text-${
-        color || "brand-dark"
-      } transition-all hover:bg-brand-blue1 hover:bg-opacity-10 hover:border-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue1 ${styleName}`}
-    >
-      {children}
-    </button>
-  );
-};
+import { StaticImage } from "gatsby-plugin-image";
+import PrimaryButton from "./primaryButton";
 
 const Monkit = () => {
   return (
@@ -26,6 +13,15 @@ const Monkit = () => {
           Monkit UI 是 CODING 推出的企业级产品设计系统，并为开发者和设计师提供
           React 与 Figma 组件。当前仅供内网访问，敬请谅解。
         </p>
+        <a href="http://monkit.coding.io/" target="_blank">
+          <StaticImage
+            src="../images/monkit-ui-cover.png"
+            alt="Monkit UI Cover"
+            placeholder="blurred"
+            width="960"
+            className="mt-16 shadow-lg rounded-2xl"
+          />
+        </a>
       </div>
       <a href="http://monkit.coding.io/" target="_blank">
         <PrimaryButton styleName="mt-12">前往 Monkit UI</PrimaryButton>
