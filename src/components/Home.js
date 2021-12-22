@@ -118,7 +118,9 @@ const IconJoint = (props) => {
 const SectionTitle = ({ section, styleName }) => {
   return (
     <div
-      className={`z-10 mx-auto max-w-screen-2xl px-4 text-center lg:sticky top-0 lg:text-left lg:mb-14 ${styleName}`}
+      className={`z-10 mx-auto max-w-screen-2xl px-4 text-center lg:sticky top-0 lg:text-left lg:mb-14 ${
+        styleName || ""
+      }`}
     >
       <div className="flex flex-col w-full mt-20 lg:mt-6 lg:w-auto lg:flex-row lg:absolute">
         <h2 className="font-semibold text-4xl lg:text-3xl lg:w-1 lg:order-last">
@@ -376,31 +378,38 @@ const IndexPage = () => {
         <main>
           {/* 理念 Section */}
           <div className="bg-white pt-8" ref={ideologySection}>
-            <SectionTitle section={sectionTitleContent[0]} />
-            <div className="mx-auto max-w-7xl px-4 pt-28 sm:px-6 lg:pr-8 lg:pl-32">
-              {ideology.map((item, i) => (
-                <div className="justify-between mb-48 lg:flex">
-                  <div className="max-w-2xl mr-6 text-base">
-                    <h3 className="mb-8 text-2xl font-semibold sm:text-6xl">
-                      {item.name}
-                    </h3>
-                    <p className="leading-relaxed">{item.descCN}</p>
-                    <p className="mt-8 text-brand-grey7 text-opacity-80">
-                      {item.descEN}
-                    </p>
-                  </div>
-                  <div className="w-full grid place-items-center min-w-88">
-                    <video
-                      id={`ideology-video-${i}`}
-                      playsInline
-                      muted
-                      preload="auto"
-                      width="400"
-                      src={item.video}
-                    />
-                  </div>
+            <SectionTitle
+              section={sectionTitleContent[0]}
+              styleName="lg:mb-48"
+            />
+            <div className="flex justify-center mx-4 sm:mx-6 lg:mx-8 mt-20 sm:mt-24 mb:mt-0 lg:-mt-5">
+              <div className="w-full max-w-co-grid grid-cols-12 grid">
+                <div className="col-span-full md:col-start-2 col-end-13 co-grid:col-span-full md:px-4">
+                  {ideology.map((item, i) => (
+                    <div className="justify-between mb-48 lg:flex">
+                      <div className="lg:max-w-2xl md:mr-6 text-base">
+                        <h3 className="mb-8 text-3xl font-semibold sm:text-6xl">
+                          {item.name}
+                        </h3>
+                        <p className="leading-relaxed">{item.descCN}</p>
+                        <p className="mt-8 text-brand-grey7 text-opacity-80">
+                          {item.descEN}
+                        </p>
+                      </div>
+                      <div className="w-full grid place-items-center min-w-88">
+                        <video
+                          id={`ideology-video-${i}`}
+                          playsInline
+                          muted
+                          preload="auto"
+                          width="400"
+                          src={item.video}
+                        />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
 

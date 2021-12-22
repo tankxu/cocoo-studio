@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       screens: {
         xs: "540px",
+        "co-grid": "1366px",
       },
       colors: {
         brand: {
@@ -50,6 +51,7 @@ module.exports = {
       },
       maxWidth: {
         "60%": "60%",
+        "co-grid": "1136px",
       },
       spacing: {
         "60px": "60px",

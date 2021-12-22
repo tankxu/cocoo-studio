@@ -100,7 +100,7 @@ const Header = () => {
       >
         <div
           className={classnames(
-            "px-4 sm:px-6 lg:px-8 flex flex-row-reverse md:flex-row justify-end relative mx-auto w-full max-w-7xl transition-all duration-500",
+            "lg:px-8 flex flex-row-reverse md:flex-row justify-end relative mx-auto w-full max-w-7xl transition-all duration-500",
             isHome ? "px-0" : "md:pr-44 lg:pr-44"
           )}
         >
@@ -243,78 +243,83 @@ const Header = () => {
       </Popover>
 
       {/* Hero */}
-      <div
-        className={classnames(
-          isHome
-            ? "max-h-[880px] pt-12 pb-24"
-            : "max-h-0 opacity-0 pointer-events-none",
-          "text-center mx-auto max-w-7xl px-4 sm:px-14 lg:px-32 transition-all duration-700"
-        )}
-      >
-        <div className={classnames(wiggleLogo ? wiggleOnHover : "")}>
-          <Link to="/" id="logo-stacked">
-            <span className="sr-only">CocooStudio</span>
-            <StaticImage
-              src="../images/cocoostudio-logo-stacked.png"
-              alt="Cocoo Studio Logo"
-              width="146"
-              placeholder="none"
-            />
-          </Link>
-        </div>
+      <div className="flex justify-center mx-4 sm:mx-6 lg:mx-8">
         <div
-          className="inline-grid mt-24 group"
-          onMouseEnter={() => setHoverCloud(true)}
-          onMouseLeave={() => setHoverCloud(false)}
+          className={classnames(
+            isHome
+              ? "max-h-[880px] pt-12 pb-24"
+              : "max-h-0 opacity-0 pointer-events-none",
+            "grid grid-cols-12 gap-4 text-center max-w-co-grid transition-all duration-700 w-full"
+          )}
         >
-          <HeroTitleText1 className="col-start-1 col-end-2 row-start-1 row-end-2 w-full h-auto" />
-          <HeroTitleText2
-            className={classnames(
-              `col-start-1 col-end-2 row-start-1 row-end-2 w-full ${heroTextMask} blur-sm fill-[#b6e0f7] transition-all duration-500 h-auto`,
-              hoverCloud ? heroTextMaskHover : null
-            )}
-          />
-          <HeroTitleText2
-            className={classnames(
-              `col-start-1 col-end-2 row-start-1 row-end-2 w-full ${heroTextMaskInvert} fill-[#fff] transition-all duration-500 h-auto`,
-              hoverCloud ? heroTextMaskHover : null
-            )}
-          />
-          <StaticImage
-            src="../images/hero-title-cloudshadow.png"
-            alt="云端工作美学"
-            placeholder="none"
-            objectFit="contain"
-            className="col-start-1 col-end-2 row-start-1 row-end-2 ml-[18.5%] w-[57.5%] h-auto mix-blend-multiply origin-bottom group-hover:scale-y-125 transition-all duration-500 pointer-events-none"
-          />
-          <StaticImage
-            src="../images/hero-title-cloud2.png"
-            alt="云端工作美学"
-            placeholder="none"
-            objectFit="contain"
-            className="col-start-1 col-end-2 row-start-1 row-end-2 ml-[18.5%] w-[57.5%] h-auto group-hover:-translate-y-5 transition-all duration-500 pointer-events-none"
-          />
-          <StaticImage
-            src="../images/hero-title-cloud1.png"
-            alt="云端工作美学"
-            placeholder="none"
-            objectFit="contain"
-            className="col-start-1 col-end-2 row-start-1 row-end-2 ml-[29.5%] w-[34.5%] h-auto transition-all duration-500 group-hover:-translate-y-7 pointer-events-none"
-          />
-        </div>
-        <div className=" text-sm sm:text-base text-white mx-auto mt-14 text-left max-w-5xl">
-          <p className="leading-relaxed">
-            腾讯云 CODING 专注打造DevOps SaaS
-            产品服务，为企业量身打造云研发工作套件。提出的体验语言“云端工作美学”，是为了让云研发工作体验变得更加“纯净简单”，更能“动态适应”不同场景和功能服务，也能企业变得更有“文化和思考”。
-          </p>
-          <p className="mt-4">
-            Tencent CODING focuses on creating DevOps SaaS products and
-            services, and tailoring cloud R&D work suites for enterprises.The
-            experience language "Cloud Work Aesthetics" proposed by CODING
-            DevOps is to make the cloud R&D work experience more "pure", to
-            "dynamically adapt" to different scenarios and functional services,
-            and to become more "cultural and thinking".
-          </p>
+          <div className="col-span-full md:col-start-2 md:col-span-10 co-grid:col-span-full">
+            <div className={classnames(wiggleLogo ? wiggleOnHover : "")}>
+              <Link to="/" id="logo-stacked">
+                <span className="sr-only">CocooStudio</span>
+                <StaticImage
+                  src="../images/cocoostudio-logo-stacked.png"
+                  alt="Cocoo Studio Logo"
+                  width="146"
+                  placeholder="none"
+                />
+              </Link>
+            </div>
+            <div
+              className="inline-grid mt-24 group"
+              onMouseEnter={() => setHoverCloud(true)}
+              onMouseLeave={() => setHoverCloud(false)}
+            >
+              <HeroTitleText1 className="col-start-1 col-end-2 row-start-1 row-end-2 w-full h-auto" />
+              <HeroTitleText2
+                className={classnames(
+                  `col-start-1 col-end-2 row-start-1 row-end-2 w-full ${heroTextMask} blur-sm fill-[#b6e0f7] transition-all duration-500 h-auto`,
+                  hoverCloud ? heroTextMaskHover : null
+                )}
+              />
+              <HeroTitleText2
+                className={classnames(
+                  `col-start-1 col-end-2 row-start-1 row-end-2 w-full ${heroTextMaskInvert} fill-[#fff] transition-all duration-500 h-auto`,
+                  hoverCloud ? heroTextMaskHover : null
+                )}
+              />
+              <StaticImage
+                src="../images/hero-title-cloudshadow.png"
+                alt="云端工作美学"
+                placeholder="none"
+                objectFit="contain"
+                className="col-start-1 col-end-2 row-start-1 row-end-2 ml-[18.5%] w-[57.5%] h-auto mix-blend-multiply origin-bottom group-hover:scale-y-125 transition-all duration-500 pointer-events-none"
+              />
+              <StaticImage
+                src="../images/hero-title-cloud2.png"
+                alt="云端工作美学"
+                placeholder="none"
+                objectFit="contain"
+                className="col-start-1 col-end-2 row-start-1 row-end-2 ml-[18.5%] w-[57.5%] h-auto group-hover:-translate-y-5 transition-all duration-500 pointer-events-none"
+              />
+              <StaticImage
+                src="../images/hero-title-cloud1.png"
+                alt="云端工作美学"
+                placeholder="none"
+                objectFit="contain"
+                className="col-start-1 col-end-2 row-start-1 row-end-2 ml-[29.5%] w-[34.5%] h-auto transition-all duration-500 group-hover:-translate-y-7 pointer-events-none"
+              />
+            </div>
+            <div className="text-sm sm:text-base text-white mx-auto mt-14 text-left px-4">
+              <p className="leading-relaxed">
+                腾讯云 CODING 专注打造DevOps SaaS
+                产品服务，为企业量身打造云研发工作套件。提出的体验语言“云端工作美学”，是为了让云研发工作体验变得更加“纯净简单”，更能“动态适应”不同场景和功能服务，也能企业变得更有“文化和思考”。
+              </p>
+              <p className="mt-4">
+                Tencent CODING focuses on creating DevOps SaaS products and
+                services, and tailoring cloud R&D work suites for
+                enterprises.The experience language "Cloud Work Aesthetics"
+                proposed by CODING DevOps is to make the cloud R&D work
+                experience more "pure", to "dynamically adapt" to different
+                scenarios and functional services, and to become more "cultural
+                and thinking".
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
