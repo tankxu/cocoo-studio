@@ -306,7 +306,7 @@ const Header = () => {
             </div>
             <div className="text-sm sm:text-base text-white mx-auto mt-14 text-left px-4">
               <p className="leading-relaxed">
-                腾讯云 CODING 专注打造DevOps SaaS
+                腾讯云 CODING 专注打造 DevOps SaaS
                 产品服务，为企业量身打造云研发工作套件。提出的体验语言“云端工作美学”，是为了让云研发工作体验变得更加“纯净简单”，更能“动态适应”不同场景和功能服务，也能企业变得更有“文化和思考”。
               </p>
               <p className="mt-4">
