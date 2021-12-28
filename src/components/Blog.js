@@ -1,6 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Helmet } from "react-helmet";
 
 const BlogPage = () => {
   const blogPosts = useStaticQuery(graphql`
@@ -28,17 +29,20 @@ const BlogPage = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>CoCoo Studio - 设计博客</title>
+      </Helmet>
       <div className="relative text-center bg-white pt-28 pb-20 px-4 sm:px-6 lg:pt-36 lg:pb-28 lg:px-8 min-h-screen">
         <div className="relative max-w-7xl mx-auto">
           <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
-            CoCoo Studio Blog
+            CoCoo Blog
           </h2>
-          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+          <p className="mt-3 max-w-2xl mx-auto text-lg text-gray-500 sm:mt-4 mb-12">
             CoCoo 团队热衷于分享 B
             端体验设计的经验心得与行业洞察。欢迎关注我们的公众号「Cocoo
             Stuido」，及时获取更新通知。
           </p>
-          <div className="mt-12 max-w-4xl mx-auto grid gap-5 text-left">
+          <div className="max-w-4xl mx-auto grid gap-5 text-left">
             {console.log(blogPosts)}
             {blogPosts.data.nodes.map((post) => {
               let d = new Date(post.postDate);

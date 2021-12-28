@@ -3,6 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Helmet } from "react-helmet";
 import classnames from "classnames";
 import { homeSectionTitleEn } from "../components/style.module.css";
 import { Transition, Dialog } from "@headlessui/react";
@@ -15,6 +16,7 @@ import ProductMatrixSVG from "../images/product-matrix.inline.svg";
 import GridTemplateDesktop from "../images/grid-template-desktop.inline.svg";
 import GridTemplatePad from "../images/grid-template-pad.inline.svg";
 import GridTemplatePhone from "../images/grid-template-phone.inline.svg";
+import IconTimes from "../images/icon-times.inline.svg";
 import PrimaryButton from "./primaryButton";
 
 const navigation = [
@@ -93,30 +95,7 @@ const sectionTitleContent = [
   },
 ];
 
-const dotmeshTab = [
-  { name: "系统页面应用展示", href: "#", current: true },
-  { name: "其它页面应用展示", href: "#", current: false },
-];
-
 // Components
-
-const IconJoint = (props) => {
-  return (
-    <svg
-      width={22}
-      height={22}
-      viewBox="0 0 22 22"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <path
-        d="M3 0a.995.995 0 00-.707.293l-2 2a.999.999 0 000 1.414L7.586 11 .293 18.293a.999.999 0 000 1.414l2 2a.999.999 0 001.414 0L11 14.414l7.293 7.293a.999.999 0 001.414 0l2-2a.999.999 0 000-1.414L14.414 11l7.293-7.293a.999.999 0 000-1.414l-2-2a.999.999 0 00-1.414 0L11 7.586 3.707.293A.996.996 0 003 0z"
-        fill="#fff"
-      />
-    </svg>
-  );
-};
 
 const SectionTitle = ({ section, styleName }) => {
   return (
@@ -170,15 +149,15 @@ class Tabs extends React.Component {
 
 const TabButtons = ({ buttons, changeTab, activeTab }) => {
   return (
-    <nav className="-mb-px flex justify-center space-x-12">
+    <nav className="-mb-px flex justify-center space-x-24">
       {buttons.map((button) => {
         return (
           <button
             className={classnames(
               button === activeTab
-                ? "border-brand-blue2 text-black text-2xl"
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 relative",
-              "whitespace-nowrap py-4 px-1 border-b-4 font-medium text-sm"
+                ? "text-black text-lg after:absolute after:h-1 after:w-20 after:bg-brand-blue2 after:left-[calc(50%-40px)] after:bottom-0"
+                : "text-gray-500 text-base",
+              "whitespace-nowrap py-4 px-1 font-medium transition-all relative"
             )}
             onClick={() => changeTab(button)}
           >
@@ -377,6 +356,10 @@ const IndexPage = () => {
 
   return (
     <div className="bg-white">
+      <Helmet>
+        <title>CoCoo Studio | 腾云CODING体验设计</title>
+      </Helmet>
+
       <div className="relative">
         <main>
           {/* 理念 Section */}
@@ -426,7 +409,7 @@ const IndexPage = () => {
               <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid text-center overflow-hidden">
                 <h3 className="text-white text-4xl mb-16 col-span-12">
                   <span>云端工作美学</span>
-                  <IconJoint className="inline-block mx-5 relative -top-1" />
+                  <IconTimes className="inline-block mx-5 relative -top-1" />
                   <span>产品倾向</span>
                 </h3>
                 <div
@@ -592,16 +575,16 @@ const IndexPage = () => {
                     <StaticImage
                       src="../images/element-dotmesh-1.png"
                       alt="dot mesh 1"
-                      width="600"
+                      width="540"
                       placeholder="blurred"
-                      className="relative lg:-ml-8 lg:w-4/5"
+                      className="max-w-[540px] relative lg:-ml-8 lg:max-h-[360px]"
                     ></StaticImage>
                     <StaticImage
                       src="../images/element-dotmesh-2.png"
                       alt="dot mesh 2"
-                      width="600"
+                      width="540"
                       placeholder="blurred"
-                      className="lg:w-4/5 align-right"
+                      className="max-w-[540px] lg:max-h-[360px] relative ml-[10%] lg:ml-[6%] co-grid:ml-24 align-right"
                     ></StaticImage>
                   </div>
                   <div className="text-base text-left mt-12 max-w-5xl mx-4">

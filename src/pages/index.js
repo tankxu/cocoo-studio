@@ -1,7 +1,8 @@
 import React from "react";
 import { Router } from "@reach/router";
+import { Helmet } from "react-helmet";
+
 import Layout from "../components/layout";
-// import SEO from "../components/seo"
 import Header from "../components/header";
 
 // const Home = React.lazy(() => import("../components/Home"));
@@ -13,6 +14,7 @@ import Home from "../components/Home";
 import Monkit from "../components/Monkit";
 import Store from "../components/Store";
 import Blog from "../components/Blog";
+import FavIcon from "../images/favicon.ico";
 
 const LazyComponent = ({ Component, ...props }) => (
   // <React.Suspense fallback={"Loading..."}>
@@ -25,7 +27,6 @@ const LazyComponent = ({ Component, ...props }) => (
 const Index = (props) => (
   <>
     <Header />
-    {/* <SEO title="Home" /> */}
     {props.children}
   </>
 );
@@ -37,6 +38,15 @@ const NotFound = () => <p>Sorry, nothing here</p>;
 
 const IndexPage = () => (
   <div className="antialiased">
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>CoCoo Studio | 腾云CODING体验设计</title>
+      <meta
+        name="description"
+        content="CoCoo Studio官方网站，CoCoo Studio是腾讯云CODING的体验设计团队，专注DevOps、开发工具类SaaS产品体验设计。提出“云端工作美学”体验设计语言，让云研发工作体验变得更加“纯净简单”，更能“动态适应”不同场景和功能服务，也能企业变得更有“文化和思考”。"
+      />
+      <link rel="icon" type="image/png" href={FavIcon} />
+    </Helmet>
     <Router>
       {/* <NotFound default /> */}
 
