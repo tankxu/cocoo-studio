@@ -139,8 +139,8 @@ const Header = () => {
           >
             <nav
               className={classnames(
-                isHome ? "px-4 sm:px-6" : "",
-                "relative max-w-7xl mx-auto flex items-center justify-between"
+                isHome ? "px-4 sm:px-6" : "px-4",
+                "relative max-w-7xl mx-auto flex items-center justify-between "
               )}
               aria-label="Global"
             >
@@ -155,8 +155,8 @@ const Header = () => {
                 </div>
                 <div
                   className={classnames(
-                    "text-xl lg:mx-auto w-full max-w-xl lg:max-w-2xl hidden md:grid md:grid-cols-4 transition-all duration-500",
-                    isHome ? "" : "text-base"
+                    "lg:mx-auto w-full max-w-xl lg:max-w-2xl hidden md:grid md:grid-cols-4 transition-all duration-500",
+                    isHome ? "text-xl" : "text-base"
                   )}
                 >
                   {navigation.map((item, index) => (

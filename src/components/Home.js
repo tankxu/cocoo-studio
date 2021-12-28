@@ -100,9 +100,8 @@ const sectionTitleContent = [
 const SectionTitle = ({ section, styleName }) => {
   return (
     <div
-      className={`z-10 mx-auto max-w-screen-2xl px-4 text-center lg:sticky top-0 lg:text-left lg:mb-14 ${
-        styleName || ""
-      }`}
+      className={`z-10 mx-auto max-w-screen-2xl px-4 text-center lg:sticky top-0 lg:text-left lg:mb-14 ${styleName || ""
+        }`}
     >
       <div className="flex flex-col w-full mt-20 lg:mt-6 lg:w-auto lg:flex-row lg:absolute">
         <h2 className="font-semibold text-4xl lg:text-3xl lg:w-1 lg:order-last lg:ml-1">
@@ -201,7 +200,7 @@ const VideoModal = ({ show, onClose }) => {
             leaveFrom="opacity-100 translate-y-0 scale-100 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 scale-150 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block transform transition-al">
+            <div className="inline-block transform transition-all">
               <div className="grid w-screen h-screen place-items-center px-10">
                 <video
                   playsInline
@@ -280,7 +279,8 @@ const IndexPage = () => {
         y: 60,
         opacity: 0,
         scale: 0.8,
-        rotation: 24,
+        // rotation: 24,
+        transform: "rotate3d(1, 0, 0, 90deg)",
       },
       {
         scrollTrigger: {
@@ -292,8 +292,9 @@ const IndexPage = () => {
         y: 0,
         opacity: 1,
         scale: 1,
-        rotation: 0,
-        duration: 0.6,
+        // rotation: 0,
+        transform: "rotate3d(1, 0, 0, 0)",
+        duration: 1,
       }
     );
 
@@ -641,53 +642,55 @@ const IndexPage = () => {
               section={sectionTitleContent[5]}
               styleName="lg:mb-40"
             />
-            <div className="pb-0 mx-auto max-w-7xl px-4 overflow-hidden sm:px-6 lg:pr-8 lg:px-32 lg:-mt-20 mt-20 sm:mt-24 mb:mt-0">
-              <StaticImage
-                src="../images/color-platten.png"
-                alt="color platten"
-                placeholder="blurred"
-                width="613"
-              ></StaticImage>
-              <div className="text-base text-left grid grid-cols-6 mt-2 -mb-28">
-                <div className="col-span-6 lg:col-span-4 z-10">
-                  <p className="leading-relaxed">
-                    我们选择用以下几种颜色作为 UI 及品牌色。
-                    <br />
-                    品牌色以蓝为主，以红，黄作为调整色，保证不会过于冷静，从而在合适的场合表达产品的温度感，我们希望
-                    CODING 整体鲜活明亮，打破常规 To B
-                    产品的冷色调风格，用深色，浅色组合使用，塑造出让用户认同的美学风格。
-                    <br />
-                    辅助色为品牌色的邻近色，增强视觉的和谐度，保证品牌和体验的印象统一。
-                  </p>
-                  <p className="mt-8 text-brand-grey7 text-opacity-80">
-                    We choose the following UI colors and branding colors.
-                    <br />
-                    The brand color is mainly blue, and red and yellow are used
-                    as adjustment colors to ensure that it will not be too cool,
-                    so as to express the temperature of the product on the right
-                    occasion. We hope that the overall color of CODING is fresh
-                    and bright, breaking the cool color style of conventional To
-                    B products. Use a combination of dark and light colors to
-                    create an aesthetic style that users agree with.
-                    <br />
-                    The auxiliary color is the adjacent color of the brand
-                    color, which enhances the visual harmony and ensures the
-                    unification of the brand and experience.
-                  </p>
-                  <Link to="">
-                    <PrimaryButton styleName="mt-12">
-                      下载色板及相关色彩标准
-                    </PrimaryButton>
-                  </Link>
-                </div>
-                <div className="text-center col-span-6 lg:col-span-2">
-                  <StaticImage
-                    src="../images/symbol-number3.png"
-                    alt="a symbol about number 3"
-                    width="630"
-                    placeholder="blurred"
-                    className="relative lg:w-630px lg:-top-56 lg:-left-28"
-                  ></StaticImage>
+            <div className="overflow-hidden">
+              <div className="pb-0 mx-auto max-w-7xl px-4 sm:px-6 lg:pr-8 lg:px-32 lg:-mt-20 mt-20 sm:mt-24 mb:mt-0">
+                <StaticImage
+                  src="../images/color-platten.png"
+                  alt="color platten"
+                  placeholder="blurred"
+                  width="613"
+                ></StaticImage>
+                <div className="text-base text-left grid grid-cols-6 mt-2 -mb-28">
+                  <div className="col-span-6 lg:col-span-4 z-10">
+                    <p className="leading-relaxed">
+                      我们选择用以下几种颜色作为 UI 及品牌色。
+                      <br />
+                      品牌色以蓝为主，以红，黄作为调整色，保证不会过于冷静，从而在合适的场合表达产品的温度感，我们希望
+                      CODING 整体鲜活明亮，打破常规 To B
+                      产品的冷色调风格，用深色，浅色组合使用，塑造出让用户认同的美学风格。
+                      <br />
+                      辅助色为品牌色的邻近色，增强视觉的和谐度，保证品牌和体验的印象统一。
+                    </p>
+                    <p className="mt-8 text-brand-grey7 text-opacity-80">
+                      We choose the following UI colors and branding colors.
+                      <br />
+                      The brand color is mainly blue, and red and yellow are used
+                      as adjustment colors to ensure that it will not be too cool,
+                      so as to express the temperature of the product on the right
+                      occasion. We hope that the overall color of CODING is fresh
+                      and bright, breaking the cool color style of conventional To
+                      B products. Use a combination of dark and light colors to
+                      create an aesthetic style that users agree with.
+                      <br />
+                      The auxiliary color is the adjacent color of the brand
+                      color, which enhances the visual harmony and ensures the
+                      unification of the brand and experience.
+                    </p>
+                    <Link to="">
+                      <PrimaryButton styleName="mt-12">
+                        下载色板及相关色彩标准
+                      </PrimaryButton>
+                    </Link>
+                  </div>
+                  <div className="text-center col-span-6 lg:col-span-2">
+                    <StaticImage
+                      src="../images/symbol-number3.png"
+                      alt="a symbol about number 3"
+                      width="630"
+                      placeholder="blurred"
+                      className="relative lg:w-630px lg:-top-56 lg:-left-28"
+                    ></StaticImage>
+                  </div>
                 </div>
               </div>
             </div>
@@ -748,7 +751,7 @@ const IndexPage = () => {
                     src="../images/texture-video-cover.png"
                     alt="video cover"
                     placeholder="blurred"
-                    className="relative"
+                    className="relative hover:scale-105 hover:drop-shadow-xl transition-all"
                   ></StaticImage>
                   <p className="text-sm lg:text-xs mt-6 pl-8">
                     *点击观看材质与动画实例
