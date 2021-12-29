@@ -17,6 +17,18 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-plugin-scroll-reveal",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "CoCoo Studio",
+        short_name: "CoCoo Studio",
+        start_url: "/",
+        background_color: "#F1F7FF",
+        theme_color: "#257EFA",
+        display: "standalone",
+        icon: "src/images/favicon.png",
+      },
+    },
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-graphcms",

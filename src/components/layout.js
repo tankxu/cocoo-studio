@@ -1,15 +1,13 @@
-import * as React from 'react'
-import { Link } from 'gatsby'
+import * as React from "react";
 import Header from "./header";
-
 
 const Layout = ({ children }) => {
   return (
     <div>
-        <Header />
-        {children}
+      <Header />
+      {children}
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

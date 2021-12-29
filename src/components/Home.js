@@ -19,12 +19,6 @@ import GridTemplatePhone from "../images/grid-template-phone.inline.svg";
 import IconTimes from "../images/icon-times.inline.svg";
 import PrimaryButton from "./primaryButton";
 
-const navigation = [
-  { name: "设计语言", href: "/" },
-  { name: "Monkit设计组件", href: "/monkit" },
-  { name: "设计博客", href: "/blog" },
-];
-
 const ideology = [
   {
     name: "Pure 纯净",
@@ -100,8 +94,9 @@ const sectionTitleContent = [
 const SectionTitle = ({ section, styleName }) => {
   return (
     <div
-      className={`z-10 mx-auto max-w-screen-2xl px-4 text-center lg:sticky top-0 lg:text-left lg:mb-14 ${styleName || ""
-        }`}
+      className={`z-10 mx-auto max-w-screen-2xl px-4 text-center lg:sticky top-0 lg:text-left lg:mb-14 ${
+        styleName || ""
+      }`}
     >
       <div className="flex flex-col w-full mt-20 lg:mt-6 lg:w-auto lg:flex-row lg:absolute">
         <h2 className="font-semibold text-4xl lg:text-3xl lg:w-1 lg:order-last lg:ml-1">
@@ -544,7 +539,7 @@ const IndexPage = () => {
                       adding rigorous and continuous attention to a consistent
                       experience impression.
                     </p>
-                    <div className="grid grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-3 w-auto sm:w-[fit-content] text-center lg:absolute lg:right-0 mt-6">
+                    <div className="grid grid-cols-3 gap-x-2 sm:gap-x-4 gap-y-3 w-auto sm:w-[fit-content] text-center lg:absolute lg:right-4 mt-6">
                       <GridTemplateDesktop className="w-full h-auto sm:w-auto" />
                       <GridTemplatePhone className="w-full h-auto sm:w-auto" />
                       <GridTemplatePad className="w-full h-auto sm:w-auto" />
@@ -637,60 +632,62 @@ const IndexPage = () => {
           </div>
 
           {/* 色彩 Section */}
-          <div className="bg-white py-8">
+          <div className="bg-white py-8 lg:pb-44">
             <SectionTitle
               section={sectionTitleContent[5]}
               styleName="lg:mb-40"
             />
-            <div className="overflow-hidden">
-              <div className="pb-0 mx-auto max-w-7xl px-4 sm:px-6 lg:pr-8 lg:px-32 lg:-mt-20 mt-20 sm:mt-24 mb:mt-0">
-                <StaticImage
-                  src="../images/color-platten.png"
-                  alt="color platten"
-                  placeholder="blurred"
-                  width="613"
-                ></StaticImage>
-                <div className="text-base text-left grid grid-cols-6 mt-2 -mb-28">
-                  <div className="col-span-6 lg:col-span-4 z-10">
-                    <p className="leading-relaxed">
-                      我们选择用以下几种颜色作为 UI 及品牌色。
-                      <br />
-                      品牌色以蓝为主，以红，黄作为调整色，保证不会过于冷静，从而在合适的场合表达产品的温度感，我们希望
-                      CODING 整体鲜活明亮，打破常规 To B
-                      产品的冷色调风格，用深色，浅色组合使用，塑造出让用户认同的美学风格。
-                      <br />
-                      辅助色为品牌色的邻近色，增强视觉的和谐度，保证品牌和体验的印象统一。
-                    </p>
-                    <p className="mt-8 text-brand-grey7 text-opacity-80">
-                      We choose the following UI colors and branding colors.
-                      <br />
-                      The brand color is mainly blue, and red and yellow are used
-                      as adjustment colors to ensure that it will not be too cool,
-                      so as to express the temperature of the product on the right
-                      occasion. We hope that the overall color of CODING is fresh
-                      and bright, breaking the cool color style of conventional To
-                      B products. Use a combination of dark and light colors to
-                      create an aesthetic style that users agree with.
-                      <br />
-                      The auxiliary color is the adjacent color of the brand
-                      color, which enhances the visual harmony and ensures the
-                      unification of the brand and experience.
-                    </p>
-                    <Link to="">
-                      <PrimaryButton styleName="mt-12">
-                        下载色板及相关色彩标准
-                      </PrimaryButton>
-                    </Link>
-                  </div>
-                  <div className="text-center col-span-6 lg:col-span-2">
-                    <StaticImage
-                      src="../images/symbol-number3.png"
-                      alt="a symbol about number 3"
-                      width="630"
-                      placeholder="blurred"
-                      className="relative lg:w-630px lg:-top-56 lg:-left-28"
-                    ></StaticImage>
-                  </div>
+            <div className="flex justify-center px-4 sm:px-6 lg:px-8 overflow-hidden lg:-mt-24 mt-20 sm:mt-24 mb:mt-0">
+              <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid">
+                <div className="col-span-full md:col-start-2 col-end-12 co-grid:col-span-full text-center lg:text-left">
+                  <StaticImage
+                    src="../images/color-platten.png"
+                    alt="color platten"
+                    placeholder="blurred"
+                    width="600"
+                    className="mb-20 lg:mt-40 lg:mb-32"
+                  ></StaticImage>
+                </div>
+
+                <div className="col-span-full md:col-start-2 col-end-12 lg:col-end-10 co-grid:col-start-1 mt-2 text-base text-left mx-4">
+                  <p className="leading-relaxed">
+                    我们选择用以下几种颜色作为 UI 及品牌色。
+                    <br />
+                    品牌色以蓝为主，以红，黄作为调整色，保证不会过于冷静，从而在合适的场合表达产品的温度感，我们希望
+                    CODING 整体鲜活明亮，打破常规 To B
+                    产品的冷色调风格，用深色，浅色组合使用，塑造出让用户认同的美学风格。
+                    <br />
+                    辅助色为品牌色的邻近色，增强视觉的和谐度，保证品牌和体验的印象统一。
+                  </p>
+                  <p className="mt-8 text-brand-grey7 text-opacity-80">
+                    We choose the following UI colors and branding colors.
+                    <br />
+                    The brand color is mainly blue, and red and yellow are used
+                    as adjustment colors to ensure that it will not be too cool,
+                    so as to express the temperature of the product on the right
+                    occasion. We hope that the overall color of CODING is fresh
+                    and bright, breaking the cool color style of conventional To
+                    B products. Use a combination of dark and light colors to
+                    create an aesthetic style that users agree with.
+                    <br />
+                    The auxiliary color is the adjacent color of the brand
+                    color, which enhances the visual harmony and ensures the
+                    unification of the brand and experience.
+                  </p>
+                  <Link to="">
+                    <PrimaryButton styleName="mt-12">
+                      下载色板及相关色彩标准
+                    </PrimaryButton>
+                  </Link>
+                </div>
+                <div className="text-center col-span-full lg:col-span-3 lg:max-h-0">
+                  <StaticImage
+                    src="../images/symbol-number3.png"
+                    alt="a symbol about number 3"
+                    width="630"
+                    placeholder="blurred"
+                    className="relative lg:w-630px lg:top-[-460px] lg:-left-28 max-w-md lg:max-w-none mt-10 lg:mt-0"
+                  ></StaticImage>
                 </div>
               </div>
             </div>
