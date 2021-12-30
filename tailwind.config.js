@@ -46,21 +46,13 @@ module.exports = {
         "2xl": "96rem",
         "size-hero": "auto 960px",
       },
-      minWidth: {
-        88: "22rem",
-      },
       maxWidth: {
         "60%": "60%",
         "co-grid": "1136px",
       },
       spacing: {
-        "60px": "60px",
-        "3px": "3px",
         18: "4.5rem",
-        "630px": "630px",
         128: "32rem",
-        "192px": "192px",
-        "196px": "196px",
         "200%": "200%",
         "16%": "16%",
       },

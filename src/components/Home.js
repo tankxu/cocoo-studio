@@ -196,7 +196,7 @@ const VideoModal = ({ show, onClose }) => {
             leaveTo="opacity-0 translate-y-4 scale-150 sm:translate-y-0 sm:scale-95"
           >
             <div className="inline-block transform transition-all">
-              <div className="grid w-screen h-screen place-items-center px-10">
+              <div className="grid w-screen h-screen place-items-center px-2 sm:px-4 md:px-10">
                 <video
                   playsInline
                   autoPlay
@@ -205,7 +205,7 @@ const VideoModal = ({ show, onClose }) => {
                   width="auto"
                   controls
                   src={CIFVideo}
-                  className="w-auto h-auto max-w-full max-h-[calc(100vh-5rem)] rounded-[2.5rem]"
+                  className="w-auto h-auto max-w-full max-h-[calc(100vh-5rem)] rounded-2xl md:rounded-[2.5rem]"
                 />
               </div>
             </div>
@@ -378,7 +378,7 @@ const IndexPage = () => {
                           {item.descEN}
                         </p>
                       </div>
-                      <div className="w-full grid place-items-center min-w-88">
+                      <div className="w-full grid place-items-center min-w-[22rem] lg:max-w-[22rem]">
                         <video
                           id={`ideology-video-${i}`}
                           playsInline
@@ -516,7 +516,7 @@ const IndexPage = () => {
             />
             <div className="flex justify-center mx-4 sm:mx-6 lg:mx-8 lg:-mt-20 mt-20 sm:mt-24 mb:mt-0">
               <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid">
-                <div className="col-span-full md:col-start-2 col-end-12 co-grid:col-span-full relative">
+                <div className="col-span-full md:col-start-2 md:col-end-12 co-grid:col-span-full relative">
                   <StaticImage
                     src="../images/layout-demo.png"
                     alt="layout demo"
@@ -566,7 +566,7 @@ const IndexPage = () => {
             />
             <div className="flex justify-center mx-4 sm:mx-6 lg:mx-8 lg:-mt-20 mt-20 sm:mt-24 mb:mt-0">
               <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid">
-                <div className="col-span-full md:col-start-2 col-end-12 co-grid:col-span-full relative">
+                <div className="col-span-full md:col-start-2 md:col-end-12 co-grid:col-span-full relative">
                   <div className="grid grid-cols-2">
                     <StaticImage
                       src="../images/element-dotmesh-1.png"
@@ -649,7 +649,7 @@ const IndexPage = () => {
                   ></StaticImage>
                 </div>
 
-                <div className="col-span-full md:col-start-2 col-end-12 lg:col-end-10 co-grid:col-start-1 mt-2 text-base text-left mx-4">
+                <div className="col-span-full md:col-start-2 md:col-end-12 lg:col-end-10 co-grid:col-start-1 mt-2 text-base text-left mx-4">
                   <p className="leading-relaxed">
                     我们选择用以下几种颜色作为 UI 及品牌色。
                     <br />
@@ -686,7 +686,7 @@ const IndexPage = () => {
                     alt="a symbol about number 3"
                     width="630"
                     placeholder="blurred"
-                    className="relative lg:w-630px lg:top-[-460px] lg:-left-28 max-w-md lg:max-w-none mt-10 lg:mt-0"
+                    className="relative lg:w-[630px] lg:top-[-460px] lg:-left-28 max-w-md lg:max-w-none mt-10 lg:mt-0"
                   ></StaticImage>
                 </div>
               </div>
@@ -699,45 +699,51 @@ const IndexPage = () => {
               section={sectionTitleContent[6]}
               styleName="lg:mb-40"
             />
-            <div className="bg-texture-section-bg1 -mt-196px lg:-mt-192px">
-              <div className="pt-36 pb-32 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20">
-                <div className="text-base text-left grid grid-cols-6 mt-2 lg:pt-128">
-                  <div className="text-center col-span-6 lg:col-span-1">
-                    <StaticImage
-                      src="../images/texture-img1.png"
-                      alt="texture image 1"
-                      placeholder="blurred"
-                      className="relative my-20 lg:my-0 lg:w-630px lg:-top-96 lg:-left-44"
-                    ></StaticImage>
-                  </div>
-                  <div className="col-span-6 z-10 lg:col-span-5 lg:text-right">
-                    <p className="leading-relaxed">
-                      CODING
-                      的服务面向众多行业，我们搭建的研发平台，是具备高可用，高扩展性的“工作容器“，所以纯净及透明的材质，是表达这种容器感的最佳选择，而材质具备流动感和色彩感，则进一步让用户感知到实际工作场景和内容的丰富多样和情感温度。
-                    </p>
-                    <p className="mt-8 text-brand-grey7 text-opacity-80">
-                      Coding's services are oriented to many industries. The R&D
-                      platform we build is a "work container" with high
-                      availability and high scalability, so pure and transparent
-                      materials are the best choice to express this sense of
-                      container, and the material has a sense of fluidity and
-                      The sense of color further allows users to perceive the
-                      richness and emotional temperature of actual work scenes
-                      and content.
-                    </p>
-                    <Link to="">
-                      <PrimaryButton styleName="mt-12">
-                        下载产品解决方案配图素材
-                      </PrimaryButton>
-                    </Link>
-                  </div>
+
+            <div className="flex flex-wrap justify-center px-4 sm:px-6 lg:px-8 overflow-hidden mt-[-196px] lg:mt-[-192px] pt-24 lg:pt-[28rem] pb-[70%] md:pb-[24%] lg:pb-72 mb:mt-0 bg-texture-section-bg1">
+              <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid">
+                <div className="text-center col-span-full lg:col-span-3 lg:max-h-0">
+                  <StaticImage
+                    src="../images/texture-img1.png"
+                    alt="texture image 1"
+                    placeholder="blurred"
+                    className="relative my-20 lg:my-0 lg:w-[630px] -right-16 lg:top-[-22rem] lg:-left-32 max-w-sm lg:max-w-none"
+                  ></StaticImage>
+                </div>
+                <div className="col-span-full md:col-start-2 lg:col-start-4 md:col-end-12 co-grid:col-start-4 co-grid:col-end-13 mt-2 text-base lg:text-right mx-4">
+                  <p className="leading-relaxed">
+                    CODING
+                    的服务面向众多行业，我们搭建的研发平台，是具备高可用，高扩展性的“工作容器“，所以纯净及透明的材质，是表达这种容器感的最佳选择，而材质具备流动感和色彩感，则进一步让用户感知到实际工作场景和内容的丰富多样和情感温度。
+                  </p>
+                  <p className="mt-8 text-brand-grey7 text-opacity-80">
+                    Coding's services are oriented to many industries. The R&D
+                    platform we build is a "work container" with high
+                    availability and high scalability, so pure and transparent
+                    materials are the best choice to express this sense of
+                    container, and the material has a sense of fluidity and The
+                    sense of color further allows users to perceive the richness
+                    and emotional temperature of actual work scenes and content.
+                  </p>
+                  <Link to="">
+                    <PrimaryButton styleName="mt-12">
+                      下载产品解决方案配图素材
+                    </PrimaryButton>
+                  </Link>
                 </div>
               </div>
             </div>
-            <div className="pt-36 pb-12 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-32">
-              <div className="grid grid-cols-8">
+            <div className="flex flex-wrap justify-center px-4 sm:px-6 lg:px-8 overflow-x-hidden mt-[calc(-70%+45px)] md:mt-[-16%] lg:-mt-44 relative pt-3">
+              <div className="grid grid-cols-12 grid-flow-col gap-x-4 w-full max-w-co-grid">
+                <div className="relative left-[-16%] md:left-0 col-span-full col-start-1 md:col-start-7 md:ml-8 xl:ml-0 xl:col-start-8 col-end-9 md:col-end-13">
+                  <StaticImage
+                    src="../images/texture-img2.png"
+                    alt="texture image 2"
+                    placeholder="blurred"
+                    className="relative co-grid:w-[572px]"
+                  ></StaticImage>
+                </div>
                 <div
-                  className="col-span-full lg:col-start-1 lg:col-end-4 cursor-pointer"
+                  className="relative top-[-16%] sm:top-[-90px] md:top-0 col-span-full md:col-start-2 lg:col-start-1 md:col-end-7 md:mb-14 cursor-pointer"
                   onClick={() => toggleModal(true)}
                 >
                   <VideoModal
@@ -748,134 +754,129 @@ const IndexPage = () => {
                     src="../images/texture-video-cover.png"
                     alt="video cover"
                     placeholder="blurred"
-                    className="relative hover:scale-105 hover:drop-shadow-xl transition-all"
+                    className="relative hover:scale-105 hover:drop-shadow-xl transition-all md:max-w-[489px]"
                   ></StaticImage>
-                  <p className="text-sm lg:text-xs mt-6 pl-8">
+                  <p className="text-sm lg:text-xs mt-6 ml-4">
                     *点击观看材质与动画实例
                   </p>
-                </div>
-                <div className="hidden lg:block col-start-6 col-end-9">
-                  <StaticImage
-                    src="../images/texture-img2.png"
-                    alt="texture image 2"
-                    placeholder="blurred"
-                    className="relative "
-                  ></StaticImage>
                 </div>
               </div>
             </div>
           </div>
 
           {/* 字体 Section */}
-          <div className="bg-white py-8">
+          <div className="bg-white pt-8 pb-20">
             <SectionTitle
               section={sectionTitleContent[7]}
               styleName="lg:mb-40"
             />
-            <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-20">
-              <StaticImage
-                src="../images/font-img.png"
-                alt="font image"
-                width="613"
-                placeholder="blurred"
-              ></StaticImage>
-              <div className="text-base text-left grid grid-cols-6 mt-2 -mb-28">
-                <div className="col-span-6 lg:col-span-5">
-                  <p className="leading-relaxed">
-                    为了更加契合品牌字体，传达IT工程师文化，在产品页面中，标题使用
-                    Inter 字体；Roboto_Mono
-                    作为数据类字体，代码属性符合产品调性；正文调整为苹方，棱角分明，干净利落，具有品质感。
-                    <br />
-                    于此同时，在运营类设计物料中，可以在标题上适当使用腾讯字体，以保证符合腾讯文化，其余建议使用以上标准字体，以便保证大篇幅的内容可识别性。
-                  </p>
-                  <p className="mt-8 text-brand-grey7 text-opacity-80">
-                    In order to better fit the brand font and convey the IT
-                    engineer culture, on the product page, it is recommended to
-                    use Inter font for the title; Roboto_Mono is used as a data
-                    font, and the code attributes are in line with the product
-                    tone; the text is adjusted to be square, sharp, clean, and
-                    with a sense of quality .<br />
-                    At the same time, in the operational design materials,
-                    Tencent fonts can be appropriately used in the titles to
-                    ensure compliance with Tencent culture. The rest are
-                    recommended to use the above standard fonts and ensure the
-                    recognizable content of large pages.
-                  </p>
-                  <Link to="">
-                    <PrimaryButton styleName="mt-12">
-                      下载以上字体文件
-                    </PrimaryButton>
-                  </Link>
+            <div className="flex justify-center mx-4 sm:mx-6 lg:mx-8 lg:-mt-24 mt-20 sm:mt-24 mb:mt-0">
+              <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid">
+                <div className="col-span-full md:col-start-2 md:col-end-12 co-grid:col-span-full relative">
+                  <StaticImage
+                    src="../images/font-img.png"
+                    alt="font image"
+                    placeholder="blurred"
+                  ></StaticImage>
+                  <div className="text-base text-left mt-12 max-w-5xl mx-4">
+                    <p className="leading-relaxed">
+                      为了更加契合品牌字体，传达IT工程师文化，在产品页面中，标题使用
+                      Inter 字体；Roboto_Mono
+                      作为数据类字体，代码属性符合产品调性；正文调整为苹方，棱角分明，干净利落，具有品质感。
+                      <br />
+                      于此同时，在运营类设计物料中，可以在标题上适当使用腾讯字体，以保证符合腾讯文化，其余建议使用以上标准字体，以便保证大篇幅的内容可识别性。
+                    </p>
+                    <p className="mt-8 text-brand-grey7 text-opacity-80">
+                      In order to better fit the brand font and convey the IT
+                      engineer culture, on the product page, it is recommended
+                      to use Inter font for the title; Roboto_Mono is used as a
+                      data font, and the code attributes are in line with the
+                      product tone; the text is adjusted to be square, sharp,
+                      clean, and with a sense of quality .<br />
+                      At the same time, in the operational design materials,
+                      Tencent fonts can be appropriately used in the titles to
+                      ensure compliance with Tencent culture. The rest are
+                      recommended to use the above standard fonts and ensure the
+                      recognizable content of large pages.
+                    </p>
+                    <Link to="">
+                      <PrimaryButton styleName="mt-12">
+                        下载以上字体文件
+                      </PrimaryButton>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* IP Section */}
-          <div className="bg-brand-blue5 py-8">
+          <div className="bg-brand-blue5 pt-8 pb-20">
             <SectionTitle
               section={sectionTitleContent[8]}
               styleName="lg:mb-40"
             />
-            <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-12">
-              <div className="grid grid-cols-4">
-                <div className="grid px-4 col-span-2 lg:col-span-1">
-                  <p className="text-center mb-4">基本形象</p>
-                  <StaticImage
-                    src="../images/coding-avatar-1.png"
-                    alt="coding avatar"
-                    placeholder="blurred"
-                  ></StaticImage>
-                </div>
-                <div className="grid px-4 col-span-2 lg:col-span-1">
-                  <p className="text-center mb-4">个性化形象</p>
-                  <StaticImage
-                    src="../images/coding-avatar-2.png"
-                    alt="coding avatar"
-                    placeholder="blurred"
-                  ></StaticImage>
-                </div>
-                <div className="grid px-4 col-span-2 lg:col-span-1">
-                  <p className="text-center mb-4">商务化形象</p>
-                  <StaticImage
-                    src="../images/coding-avatar-3.png"
-                    alt="coding avatar"
-                    placeholder="blurred"
-                  ></StaticImage>
-                </div>
-                <div className="grid px-4 col-span-2 lg:col-span-1">
-                  <p className="text-center mb-4">客服形象</p>
-                  <StaticImage
-                    src="../images/coding-avatar-4.png"
-                    alt="coding avatar"
-                    placeholder="blurred"
-                  ></StaticImage>
-                </div>
-              </div>
-              <div className="text-base text-left grid grid-cols-6 mt-12 -mb-28">
-                <div className="col-span-6 lg:col-span-5">
-                  <p className="leading-relaxed">
-                    CODING
-                    洋葱猴形象包含三种基本形象，基本版，个性版，商务版。这些形象应当出现在与用户或客户沟通时的场合或相关设计方案中，包括并不限于“动态广告，运营活动，品牌周边”等场合，请勿滥用形象，请勿低龄化使用这些形象，如有不明白，请咨询Cocoo
-                    Studio设计负责人。
-                  </p>
-                  <p className="mt-8 text-brand-grey7 text-opacity-80">
-                    The CODING onion monkey image contains three basic images,
-                    the basic version, the character version, and the business
-                    version. These images should appear in occasions when
-                    communicating with users or customers or in related design
-                    solutions, including but not limited to occasions such as
-                    "dynamic advertisements, operational activities, brand
-                    surroundings", etc. Do not abuse the images, and do not use
-                    these images at a young age, such as If you don’t
-                    understand, please consult the design leader of Cocoo
-                    Studio.
-                  </p>
-                  <Link to="">
-                    <PrimaryButton styleName="mt-12">
-                      下载 3D 形象及源文件
-                    </PrimaryButton>
-                  </Link>
+            <div className="flex justify-center mx-4 sm:mx-6 lg:mx-8 lg:-mt-24 mt-20 sm:mt-24 mb:mt-0">
+              <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid">
+                <div className="col-span-full md:col-start-2 md:col-end-12 co-grid:col-span-full relative">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4">
+                    <div className="col-span-1">
+                      <p className="text-center my-3">基本形象</p>
+                      <StaticImage
+                        src="../images/coding-avatar-1.png"
+                        alt="coding avatar"
+                        placeholder="blurred"
+                      ></StaticImage>
+                    </div>
+                    <div className="col-span-1">
+                      <p className="text-center my-3">个性化形象</p>
+                      <StaticImage
+                        src="../images/coding-avatar-2.png"
+                        alt="coding avatar"
+                        placeholder="blurred"
+                      ></StaticImage>
+                    </div>
+                    <div className="col-span-1">
+                      <p className="text-center my-3">商务化形象</p>
+                      <StaticImage
+                        src="../images/coding-avatar-3.png"
+                        alt="coding avatar"
+                        placeholder="blurred"
+                      ></StaticImage>
+                    </div>
+                    <div className="col-span-1">
+                      <p className="text-center my-3">客服形象</p>
+                      <StaticImage
+                        src="../images/coding-avatar-4.png"
+                        alt="coding avatar"
+                        placeholder="blurred"
+                      ></StaticImage>
+                    </div>
+                  </div>
+                  <div className="text-base text-left mt-12 max-w-5xl mx-4">
+                    <p className="leading-relaxed">
+                      CODING
+                      洋葱猴形象包含三种基本形象，基本版，个性版，商务版。这些形象应当出现在与用户或客户沟通时的场合或相关设计方案中，包括并不限于“动态广告，运营活动，品牌周边”等场合，请勿滥用形象，请勿低龄化使用这些形象，如有不明白，请咨询Cocoo
+                      Studio设计负责人。
+                    </p>
+                    <p className="mt-8 text-brand-grey7 text-opacity-80">
+                      The CODING onion monkey image contains three basic images,
+                      the basic version, the character version, and the business
+                      version. These images should appear in occasions when
+                      communicating with users or customers or in related design
+                      solutions, including but not limited to occasions such as
+                      "dynamic advertisements, operational activities, brand
+                      surroundings", etc. Do not abuse the images, and do not
+                      use these images at a young age, such as If you don’t
+                      understand, please consult the design leader of Cocoo
+                      Studio.
+                    </p>
+                    <Link to="">
+                      <PrimaryButton styleName="mt-12">
+                        下载 3D 形象及源文件
+                      </PrimaryButton>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -884,52 +885,55 @@ const IndexPage = () => {
           {/* 开源 Section */}
           <div className="overflow-hidden w-full">
             <div className="flex bg-opensource-bg w-200%">
-              <div className="z-10 py-8 w-full">
+              <div className="z-10 pt-8 pb-20 w-full">
                 <SectionTitle
                   section={sectionTitleContent[9]}
                   styleName="lg:mb-128"
                 />
-                <div className="pt-36 pb-40 mx-auto max-w-7xl px-4 sm:px-6 lg:pt-0 lg:pr-8 lg:px-32 lg:-mt-80">
-                  <StaticImage
-                    src="../images/monkit-logo.png"
-                    alt="monkit logo"
-                    width="520"
-                    placeholder="blurred"
-                    className="max-w-60%"
-                  ></StaticImage>
-                  <div className="text-base text-left grid grid-cols-6 mt-24 -mb-28">
-                    <div className="col-span-6 lg:col-span-4">
-                      <p className="leading-relaxed">
-                        为了给用户带来更好的产品体验，我们经过大量项目实践和总结，打磨出一个服务于企业级产品的设计体系——Monkit。
-                        <br />
-                        <br />
-                        基于云端工作美学 Pure 纯净、Dynamic 动态、Thinking 思考
-                        三大设计价值观，通过提供完善的设计指引、最佳实践、设计资源来帮助产品团队降低冗余生产成本，让设计者专注于更好的用户体验。
-                        未来 Monkit
-                        将对外开放使用，致力于释放每个团队的潜力，共同打造
-                        CODING 产品生态圈。
-                      </p>
-                      <p className="mt-8 text-brand-grey7 text-opacity-80">
-                        In order to provide users with a better product
-                        experience, we have completed a large number of project
-                        practices and summaries, and polished a design system
-                        that serves enterprise-level products-Monkit.
-                        <br />
-                        Based on the three design values of cloud work
-                        aesthetics: Pure, Ddynamic, and Thinking, it helps
-                        product teams reduce redundant production costs by
-                        providing complete design guidelines, best practices,
-                        and design resources, allowing designers to focus on a
-                        better user experience . In the future, Monkit will be
-                        open to the outside world, committed to releasing the
-                        potential of each team and jointly creating a coding
-                        product ecosystem.
-                      </p>
-                      <Link to="">
-                        <PrimaryButton styleName="mt-12">
-                          查看 Monkit
-                        </PrimaryButton>
-                      </Link>
+                <div className="flex justify-center mx-4 sm:mx-6 lg:mx-8 lg:mt-[-28rem] mt-20 sm:mt-24 mb:mt-0">
+                  <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid">
+                    <div className="col-span-full md:col-start-2 md:col-end-9 co-grid:col-start-1 relative">
+                      <StaticImage
+                        src="../images/monkit-logo.png"
+                        alt="monkit logo"
+                        width="520"
+                        placeholder="blurred"
+                        className="max-w-60%  mx-4"
+                      ></StaticImage>
+                      <div className="text-base text-left mt-12 max-w-5xl mx-4">
+                        <p className="leading-relaxed">
+                          为了给用户带来更好的产品体验，我们经过大量项目实践和总结，打磨出一个服务于企业级产品的设计体系——Monkit。
+                          <br />
+                          <br />
+                          基于云端工作美学 Pure 纯净、Dynamic 动态、Thinking
+                          思考
+                          三大设计价值观，通过提供完善的设计指引、最佳实践、设计资源来帮助产品团队降低冗余生产成本，让设计者专注于更好的用户体验。
+                          未来 Monkit
+                          将对外开放使用，致力于释放每个团队的潜力，共同打造
+                          CODING 产品生态圈。
+                        </p>
+                        <p className="mt-8 text-brand-grey7 text-opacity-80">
+                          In order to provide users with a better product
+                          experience, we have completed a large number of
+                          project practices and summaries, and polished a design
+                          system that serves enterprise-level products-Monkit.
+                          <br />
+                          Based on the three design values of cloud work
+                          aesthetics: Pure, Ddynamic, and Thinking, it helps
+                          product teams reduce redundant production costs by
+                          providing complete design guidelines, best practices,
+                          and design resources, allowing designers to focus on a
+                          better user experience . In the future, Monkit will be
+                          open to the outside world, committed to releasing the
+                          potential of each team and jointly creating a coding
+                          product ecosystem.
+                        </p>
+                        <Link to="">
+                          <PrimaryButton styleName="mt-12">
+                            查看 Monkit
+                          </PrimaryButton>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>

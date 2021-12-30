@@ -37,7 +37,7 @@ const HeaderLink = ({ title, link, activated, dark }) => {
       {activated ? (
         <div
           className={classnames(
-            "bg-white w-60px h-3px mx-auto relative bottom-[-17px] transition-all duration-500 animate-fade-in-500ms opacity-100",
+            "bg-white w-[60px] h-3px mx-auto relative bottom-[-17px] transition-all duration-500 animate-fade-in-500ms opacity-100",
             dark ? "" : "bg-gray-300 bottom-[-10px]"
           )}
         ></div>
