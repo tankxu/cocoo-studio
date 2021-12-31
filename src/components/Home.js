@@ -5,7 +5,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Helmet } from "react-helmet";
 import classnames from "classnames";
-import { homeSectionTitleEn } from "../components/style.module.css";
+import {
+  homeSectionTitleEn,
+  gridArea1111,
+  monkitBgSize,
+} from "../components/style.module.css";
 import { Transition, Dialog } from "@headlessui/react";
 import PureMotion from "../assets/pure-motion.mp4";
 import DynamicMotion from "../assets/dynamic-motion-2.mp4";
@@ -17,6 +21,7 @@ import GridTemplateDesktop from "../images/grid-template-desktop.inline.svg";
 import GridTemplatePad from "../images/grid-template-pad.inline.svg";
 import GridTemplatePhone from "../images/grid-template-phone.inline.svg";
 import IconTimes from "../images/icon-times.inline.svg";
+import CloudDesktop from "../images/cloud-desktop.inline.svg";
 import PrimaryButton from "./primaryButton";
 
 const ideology = [
@@ -474,13 +479,7 @@ const IndexPage = () => {
               styleName="lg:mb-48"
             />
             <div id="cloud-desktop-image">
-              <StaticImage
-                src="../images/cloud-desktop.svg"
-                alt="cloud desktop"
-                width="1480"
-                placeholder="blurred"
-                className="mt-20 lg:mt-4"
-              ></StaticImage>
+              <CloudDesktop className="mt-20 lg:mt-4 w-full" />
             </div>
           </div>
 
@@ -523,7 +522,7 @@ const IndexPage = () => {
                     width="1150"
                     placeholder="blurred"
                   ></StaticImage>
-                  <div className="text-base text-left mt-12 max-w-5xl mx-4">
+                  <div className="text-base text-left mt-12 max-w-5xl xs:mx-4">
                     <p className="leading-relaxed">
                       栅格系统是“云工作美学”特别提出的界面设计与常规内容布局方法，这一方面会打通UI视觉设计和前端开发/界面还原效果的一致性，另一方面也规范和限制了各种新界面设计时的“随意性”，将灵感和功能收纳进无形的容器中，为一致化的体验印象增加了严谨且持续的关注。
                     </p>
@@ -583,7 +582,7 @@ const IndexPage = () => {
                       className="max-w-[540px] lg:max-h-[360px] relative ml-[10%] lg:ml-[6%] co-grid:ml-24 align-right"
                     ></StaticImage>
                   </div>
-                  <div className="text-base text-left mt-12 max-w-5xl mx-4">
+                  <div className="text-base text-left mt-12 max-w-5xl xs:mx-4">
                     <p className="leading-relaxed">
                       点阵元素是“云工作美学”中最能体现“严谨与规则化”内涵的核心元素，无论在界面设计还是品牌宣传中，恰当的使用点阵排列，会增强内容或者控件布局的合理性，也能在用户的心智中留下更为精确精密的体验印象。
                     </p>
@@ -649,7 +648,7 @@ const IndexPage = () => {
                   ></StaticImage>
                 </div>
 
-                <div className="col-span-full md:col-start-2 md:col-end-12 lg:col-end-10 co-grid:col-start-1 mt-2 text-base text-left mx-4">
+                <div className="col-span-full md:col-start-2 md:col-end-12 lg:col-end-10 co-grid:col-start-1 mt-2 text-base text-left xs:mx-4">
                   <p className="leading-relaxed">
                     我们选择用以下几种颜色作为 UI 及品牌色。
                     <br />
@@ -680,13 +679,13 @@ const IndexPage = () => {
                     </PrimaryButton>
                   </Link>
                 </div>
-                <div className="text-center col-span-full lg:col-span-3 lg:max-h-0">
+                <div className="relative text-right lg:text-center col-span-full md:col-start-2 md:col-end-12 lg:col-span-3 lg:max-h-0 mb-[-14%] xs:mb-[-26%] lg:mb-0 lg:top-[-364px]">
                   <StaticImage
                     src="../images/symbol-number3.png"
                     alt="a symbol about number 3"
                     width="630"
                     placeholder="blurred"
-                    className="relative lg:w-[630px] lg:top-[-460px] lg:-left-28 max-w-md lg:max-w-none mt-10 lg:mt-0"
+                    className="relative lg:w-[630px] top-0 xs:-top-24 lg:-left-28 max-w-md lg:max-w-none lg:mt-0 lg:block right-[-16%]  w-1/2"
                   ></StaticImage>
                 </div>
               </div>
@@ -710,7 +709,7 @@ const IndexPage = () => {
                     className="relative my-20 lg:my-0 lg:w-[630px] -right-16 lg:top-[-22rem] lg:-left-32 max-w-sm lg:max-w-none"
                   ></StaticImage>
                 </div>
-                <div className="col-span-full md:col-start-2 lg:col-start-4 md:col-end-12 co-grid:col-start-4 co-grid:col-end-13 mt-2 text-base lg:text-right mx-4">
+                <div className="col-span-full md:col-start-2 lg:col-start-4 md:col-end-12 co-grid:col-start-4 co-grid:col-end-13 mt-2 text-base lg:text-right xs:mx-4">
                   <p className="leading-relaxed">
                     CODING
                     的服务面向众多行业，我们搭建的研发平台，是具备高可用，高扩展性的“工作容器“，所以纯净及透明的材质，是表达这种容器感的最佳选择，而材质具备流动感和色彩感，则进一步让用户感知到实际工作场景和内容的丰富多样和情感温度。
@@ -774,11 +773,11 @@ const IndexPage = () => {
               <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid">
                 <div className="col-span-full md:col-start-2 md:col-end-12 co-grid:col-span-full relative">
                   <StaticImage
-                    src="../images/font-img.png"
+                    src="../images/font-img.jpg"
                     alt="font image"
                     placeholder="blurred"
                   ></StaticImage>
-                  <div className="text-base text-left mt-12 max-w-5xl mx-4">
+                  <div className="text-base text-left mt-12 max-w-5xl xs:mx-4">
                     <p className="leading-relaxed">
                       为了更加契合品牌字体，传达IT工程师文化，在产品页面中，标题使用
                       Inter 字体；Roboto_Mono
@@ -853,7 +852,7 @@ const IndexPage = () => {
                       ></StaticImage>
                     </div>
                   </div>
-                  <div className="text-base text-left mt-12 max-w-5xl mx-4">
+                  <div className="text-base text-left mt-12 max-w-5xl xs:mx-4">
                     <p className="leading-relaxed">
                       CODING
                       洋葱猴形象包含三种基本形象，基本版，个性版，商务版。这些形象应当出现在与用户或客户沟通时的场合或相关设计方案中，包括并不限于“动态广告，运营活动，品牌周边”等场合，请勿滥用形象，请勿低龄化使用这些形象，如有不明白，请咨询Cocoo
@@ -883,62 +882,69 @@ const IndexPage = () => {
           </div>
 
           {/* 开源 Section */}
-          <div className="overflow-hidden w-full">
-            <div className="flex bg-opensource-bg w-200%">
-              <div className="z-10 pt-8 pb-20 w-full">
-                <SectionTitle
-                  section={sectionTitleContent[9]}
-                  styleName="lg:mb-128"
-                />
-                <div className="flex justify-center mx-4 sm:mx-6 lg:mx-8 lg:mt-[-28rem] mt-20 sm:mt-24 mb:mt-0">
-                  <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid">
-                    <div className="col-span-full md:col-start-2 md:col-end-9 co-grid:col-start-1 relative">
-                      <StaticImage
-                        src="../images/monkit-logo.png"
-                        alt="monkit logo"
-                        width="520"
-                        placeholder="blurred"
-                        className="max-w-60%  mx-4"
-                      ></StaticImage>
-                      <div className="text-base text-left mt-12 max-w-5xl mx-4">
-                        <p className="leading-relaxed">
-                          为了给用户带来更好的产品体验，我们经过大量项目实践和总结，打磨出一个服务于企业级产品的设计体系——Monkit。
-                          <br />
-                          <br />
-                          基于云端工作美学 Pure 纯净、Dynamic 动态、Thinking
-                          思考
-                          三大设计价值观，通过提供完善的设计指引、最佳实践、设计资源来帮助产品团队降低冗余生产成本，让设计者专注于更好的用户体验。
-                          未来 Monkit
-                          将对外开放使用，致力于释放每个团队的潜力，共同打造
-                          CODING 产品生态圈。
-                        </p>
-                        <p className="mt-8 text-brand-grey7 text-opacity-80">
-                          In order to provide users with a better product
-                          experience, we have completed a large number of
-                          project practices and summaries, and polished a design
-                          system that serves enterprise-level products-Monkit.
-                          <br />
-                          Based on the three design values of cloud work
-                          aesthetics: Pure, Ddynamic, and Thinking, it helps
-                          product teams reduce redundant production costs by
-                          providing complete design guidelines, best practices,
-                          and design resources, allowing designers to focus on a
-                          better user experience . In the future, Monkit will be
-                          open to the outside world, committed to releasing the
-                          potential of each team and jointly creating a coding
-                          product ecosystem.
-                        </p>
-                        <Link to="">
-                          <PrimaryButton styleName="mt-12">
-                            查看 Monkit
-                          </PrimaryButton>
-                        </Link>
-                      </div>
+          <div className="grid bg-opensource-bg">
+            <div className={`${gridArea1111} pt-8 pb-20 w-full z-10`}>
+              <SectionTitle
+                section={sectionTitleContent[9]}
+                styleName="lg:mb-128"
+              />
+              <div className="flex justify-center mx-4 sm:mx-6 lg:mx-8 lg:mt-[-28rem] mt-[480px] md:mt-24">
+                <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid">
+                  <div className="col-span-full md:col-start-2 md:col-end-9 co-grid:col-start-1 relative">
+                    <StaticImage
+                      src="../images/monkit-logo.png"
+                      alt="monkit logo"
+                      width="520"
+                      placeholder="blurred"
+                      className="max-w-60%  mx-4"
+                    ></StaticImage>
+                    <div className="text-base text-left mt-6 xs:mt-12 max-w-5xl xs:mx-4">
+                      <p className="leading-relaxed">
+                        为了给用户带来更好的产品体验，我们经过大量项目实践和总结，打磨出一个服务于企业级产品的设计体系——Monkit。
+                        <br />
+                        <br />
+                        基于云端工作美学 Pure 纯净、Dynamic 动态、Thinking 思考
+                        三大设计价值观，通过提供完善的设计指引、最佳实践、设计资源来帮助产品团队降低冗余生产成本，让设计者专注于更好的用户体验。
+                        未来 Monkit
+                        将对外开放使用，致力于释放每个团队的潜力，共同打造
+                        CODING 产品生态圈。
+                      </p>
+                      <p className="mt-8 text-brand-grey7 text-opacity-80">
+                        In order to provide users with a better product
+                        experience, we have completed a large number of project
+                        practices and summaries, and polished a design system
+                        that serves enterprise-level products-Monkit.
+                        <br />
+                        Based on the three design values of cloud work
+                        aesthetics: Pure, Ddynamic, and Thinking, it helps
+                        product teams reduce redundant production costs by
+                        providing complete design guidelines, best practices,
+                        and design resources, allowing designers to focus on a
+                        better user experience . In the future, Monkit will be
+                        open to the outside world, committed to releasing the
+                        potential of each team and jointly creating a coding
+                        product ecosystem.
+                      </p>
+                      <Link to="">
+                        <PrimaryButton styleName="mt-12">
+                          查看 Monkit
+                        </PrimaryButton>
+                      </Link>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="bg-opensource-img w-full bg-contain bg-no-repeat relative right-16%"></div>
+            </div>
+            <div
+              className={`${gridArea1111} w-full overflow-hidden pt-64 md:pt-0`}
+            >
+              <div className="flex justify-center md:px-6 lg:px-8 h-full">
+                <div className="w-full max-w-co-grid h-full">
+                  <div
+                    className={`relative bg-opensource-img w-full bg-top md:bg-left ${monkitBgSize} md:bg-contain bg-no-repeat h-[365px] md:h-full md:left-[calc((100%-16px*11)/12*8+16px*8+13px)]`}
+                  ></div>
+                </div>
+              </div>
             </div>
           </div>
 

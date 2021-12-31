@@ -50,3 +50,19 @@
   mask-size: 34.5%;
   mask-position: 45.2% 49%;
 }
+
+.grid-area-1111 {
+  grid-area: 1 / 1 / 1 / 1;
+}
+
+@media (max-width: 540px) {
+  .monkit-bg-size {
+    background-size: 540px;
+  }
+}
+
+@media (min-width: 540px) and (max-width: 768px) {
+  .monkit-bg-size {
+    background-size: cover;
+  }
+}
