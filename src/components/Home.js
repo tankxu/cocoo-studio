@@ -444,14 +444,17 @@ const IndexPage = () => {
                         logo typesetting and color matching in order to unify
                         the corporate impression.
                       </p>
-                      <Link to="">
+                      <a
+                        href="https://tankxu.coding.net/s/34195f49-7cb7-4a12-908f-bbb6a89cd88c"
+                        target="_blank"
+                      >
                         <PrimaryButton
                           styleName="mt-12"
                           color="brand-blue2 hover:bg-brand-blue1"
                         >
                           下载标志组合包
                         </PrimaryButton>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -595,11 +598,14 @@ const IndexPage = () => {
                       control layout. It can also leave a more precise and
                       precise experience impression in the user's mind.
                     </p>
-                    <Link to="">
+                    <a
+                      href="https://tankxu.coding.net/s/1ea8e551-6b9a-4208-84f9-95d372032fbd"
+                      target="_blank"
+                    >
                       <PrimaryButton styleName="mt-12">
                         下载点阵 Affinity 模板文件
                       </PrimaryButton>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -723,11 +729,14 @@ const IndexPage = () => {
                     sense of color further allows users to perceive the richness
                     and emotional temperature of actual work scenes and content.
                   </p>
-                  <Link to="">
+                  <a
+                    href="https://tankxu.coding.net/s/3fc3da37-0d03-44de-ab7b-3c8f410c2396"
+                    target="_blank"
+                  >
                     <PrimaryButton styleName="mt-12">
                       下载产品解决方案配图素材
                     </PrimaryButton>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -798,11 +807,11 @@ const IndexPage = () => {
                       recommended to use the above standard fonts and ensure the
                       recognizable content of large pages.
                     </p>
-                    <Link to="">
+                    <a href="" target="_blank">
                       <PrimaryButton styleName="mt-12">
                         下载以上字体文件
                       </PrimaryButton>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -925,11 +934,11 @@ const IndexPage = () => {
                         potential of each team and jointly creating a coding
                         product ecosystem.
                       </p>
-                      <Link to="">
+                      <a href="/monkit" target="_blank">
                         <PrimaryButton styleName="mt-12">
-                          查看 Monkit
+                          查看 Monkit UI
                         </PrimaryButton>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>
