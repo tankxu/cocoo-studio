@@ -21,7 +21,6 @@ import GridTemplateDesktop from "../images/grid-template-desktop.inline.svg";
 import GridTemplatePad from "../images/grid-template-pad.inline.svg";
 import GridTemplatePhone from "../images/grid-template-phone.inline.svg";
 import IconTimes from "../images/icon-times.inline.svg";
-import CloudDesktop from "../images/cloud-desktop.inline.svg";
 import PrimaryButton from "./primaryButton";
 
 const ideology = [
@@ -148,7 +147,7 @@ class Tabs extends React.Component {
 
 const TabButtons = ({ buttons, changeTab, activeTab }) => {
   return (
-    <nav className="-mb-px flex justify-center space-x-24">
+    <nav className="-mb-px flex justify-center space-x-8 sm:space-x-24">
       {buttons.map((button) => {
         return (
           <button
@@ -246,9 +245,14 @@ const IndexPage = () => {
   gsap.registerPlugin(ScrollTrigger);
   const ideologySection = useRef(null);
   const [showModal, toggleModal] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const ideologySectionElement = ideologySection.current;
+    const media = window.matchMedia("(min-width: 1024px)");
+    const listener = () => setIsDesktop(media.matches);
+    listener();
+    window.addEventListener("resize", listener);
 
     gsap.fromTo(
       "#product-matrix",
@@ -315,6 +319,42 @@ const IndexPage = () => {
       }
     );
 
+    gsap.fromTo(
+      "#symbol-number3",
+      {
+        y: 200,
+      },
+      {
+        scrollTrigger: {
+          trigger: "#symbol-number3",
+          start: "top bottom",
+          end: "center top",
+          toggleActions: "play reverse play reverse",
+          scrub: 0.5,
+        },
+        y: 0,
+      }
+    );
+
+    // Don't know why it doesn't work!!
+    // gsap.fromTo(
+    //   "#texture-wave",
+    //   {
+    //     y: 200,
+    //   },
+    //   {
+    //     scrollTrigger: {
+    //       trigger: "texture-wave",
+    //       start: "center center",
+    //       end: "center top",
+    //       toggleActions: "play reverse play reverse",
+    //       scrub: 0.5,
+    //       markers: true,
+    //     },
+    //     y: 0,
+    //   }
+    // );
+
     const videoState = [];
 
     for (let i = 0; i <= 2; i++) {
@@ -353,7 +393,9 @@ const IndexPage = () => {
         onToggle: (self) => (self.start ? playVideo(videoElement) : null),
       });
     }
-  });
+
+    return () => window.removeEventListener("resize", listener);
+  }, [isDesktop]);
 
   return (
     <div className="bg-white">
@@ -383,7 +425,7 @@ const IndexPage = () => {
                           {item.descEN}
                         </p>
                       </div>
-                      <div className="w-full grid place-items-center min-w-[22rem] lg:max-w-[22rem]">
+                      <div className="w-full grid place-items-center lg:min-w-[22rem] lg:max-w-[22rem]">
                         <video
                           id={`ideology-video-${i}`}
                           playsInline
@@ -417,7 +459,7 @@ const IndexPage = () => {
                   id="product-matrix"
                   className="flex justify-center col-span-12 lg:col-start-2 lg:col-span-10 mx-6"
                 >
-                  <ProductMatrixSVG className="h-auto" />
+                  <ProductMatrixSVG className="h-full w-full" />
                 </div>
                 <div className="col-start-2 col-span-10 flex justify-center">
                   <div className="max-w-[752px]">
@@ -482,7 +524,13 @@ const IndexPage = () => {
               styleName="lg:mb-48"
             />
             <div id="cloud-desktop-image">
-              <CloudDesktop className="mt-20 lg:mt-4 w-full" />
+              <StaticImage
+                src="../images/cloud-desktop.png"
+                alt="cloud desktop"
+                width="1398"
+                placeholder="blurred"
+                className="mt-20 lg:mt-4"
+              ></StaticImage>
             </div>
           </div>
 
@@ -549,11 +597,14 @@ const IndexPage = () => {
                       <p className="hidden sm:block">Phone</p>
                       <p className="hidden sm:block">Pad</p>
                     </div>
-                    <Link to="">
+                    <a
+                      href="https://www.figma.com/community/file/1060183562623323401"
+                      target="_blank"
+                    >
                       <PrimaryButton styleName="mt-12">
                         查看栅格 Figma 模板
                       </PrimaryButton>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -679,20 +730,25 @@ const IndexPage = () => {
                     color, which enhances the visual harmony and ensures the
                     unification of the brand and experience.
                   </p>
-                  <Link to="">
+                  <a
+                    href="https://www.figma.com/community/file/1058706797974090650"
+                    target="_blank"
+                  >
                     <PrimaryButton styleName="mt-12">
                       下载色板及相关色彩标准
                     </PrimaryButton>
-                  </Link>
+                  </a>
                 </div>
                 <div className="relative text-right lg:text-center col-span-full md:col-start-2 md:col-end-12 lg:col-span-3 lg:max-h-0 mb-[-14%] xs:mb-[-26%] lg:mb-0 lg:top-[-364px]">
-                  <StaticImage
-                    src="../images/symbol-number3.png"
-                    alt="a symbol about number 3"
-                    width="630"
-                    placeholder="blurred"
-                    className="relative lg:w-[630px] top-0 xs:-top-24 lg:-left-28 max-w-md lg:max-w-none lg:mt-0 lg:block right-[-16%]  w-1/2"
-                  ></StaticImage>
+                  <div id={isDesktop ? "symbol-number3" : null}>
+                    <StaticImage
+                      src="../images/symbol-number3.png"
+                      alt="a symbol about number 3"
+                      width="630"
+                      placeholder="blurred"
+                      className="relative lg:w-[630px] top-0 xs:-top-24 lg:-left-28 max-w-md lg:max-w-none lg:mt-0 lg:block right-[-16%]  w-1/2"
+                    ></StaticImage>
+                  </div>
                 </div>
               </div>
             </div>
@@ -708,12 +764,18 @@ const IndexPage = () => {
             <div className="flex flex-wrap justify-center px-4 sm:px-6 lg:px-8 overflow-hidden mt-[-196px] lg:mt-[-192px] pt-24 lg:pt-[28rem] pb-[70%] md:pb-[24%] lg:pb-72 mb:mt-0 bg-texture-section-bg1">
               <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid">
                 <div className="text-center col-span-full lg:col-span-3 lg:max-h-0">
-                  <StaticImage
-                    src="../images/texture-img1.png"
-                    alt="texture image 1"
-                    placeholder="blurred"
-                    className="relative my-20 lg:my-0 lg:w-[630px] -right-16 lg:top-[-22rem] lg:-left-32 max-w-sm lg:max-w-none"
-                  ></StaticImage>
+                  <div
+                    id="texture-wave"
+                    className="relative my-20 lg:my-0 lg:w-[630px] -right-16 lg:top-[-22rem] lg:-left-32 "
+                  >
+                    <StaticImage
+                      src="../images/texture-img1.png"
+                      alt="texture image 1"
+                      placeholder="blurred"
+                      id="texture-wave"
+                      className="max-w-sm lg:max-w-none"
+                    ></StaticImage>
+                  </div>
                 </div>
                 <div className="col-span-full md:col-start-2 lg:col-start-4 md:col-end-12 co-grid:col-start-4 co-grid:col-end-13 mt-2 text-base lg:text-right xs:mx-4">
                   <p className="leading-relaxed">
