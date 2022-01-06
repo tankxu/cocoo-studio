@@ -763,7 +763,7 @@ const IndexPage = () => {
 
             <div className="flex flex-wrap justify-center px-4 sm:px-6 lg:px-8 overflow-hidden mt-[-196px] lg:mt-[-192px] pt-24 lg:pt-[28rem] pb-[70%] md:pb-[24%] lg:pb-72 mb:mt-0 bg-texture-section-bg1">
               <div className="grid grid-cols-12 gap-x-4 w-full max-w-co-grid">
-                <div className="text-center col-span-full lg:col-span-3 lg:max-h-0">
+                <div className="relative text-center col-span-full lg:col-span-3 lg:max-h-0">
                   <div
                     id="texture-wave"
                     className="relative my-20 lg:my-0 lg:w-[630px] -right-16 lg:top-[-22rem] lg:-left-32 "
@@ -869,7 +869,10 @@ const IndexPage = () => {
                       recommended to use the above standard fonts and ensure the
                       recognizable content of large pages.
                     </p>
-                    <a href="" target="_blank">
+                    <a
+                      href="https://tankxu.coding.net/s/ee242b8e-393d-4486-983c-b2ab89c4b83e"
+                      target="_blank"
+                    >
                       <PrimaryButton styleName="mt-12">
                         下载以上字体文件
                       </PrimaryButton>
