@@ -3,7 +3,7 @@
 
 [<img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="30" />](https://www.gatsbyjs.com) Use [Gatsby](https://www.gatsbyjs.com) v3 static-site generation web framework
 
-[<img alt="Gatsby" src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.cb8046c163f77190406dfbf4dec89848.svg" width="30" />](https://tailwindcss.com/) Use [Tailwind CSS](https://tailwindcss.com/) framework 
+[<img alt="Tailwind" src="https://user-images.githubusercontent.com/5106039/148322663-0202dba0-4021-443a-a8ed-c140c27d0389.png" width="30" />](https://tailwindcss.com/) Use [Tailwind CSS](https://tailwindcss.com/) framework 
 
 ## 🛵 Summary
 
