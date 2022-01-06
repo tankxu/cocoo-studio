@@ -26,13 +26,13 @@
     Navigate into this site’s directory and install dependencies.
 
     ```shell
-    npm install
+    yarn install
     ```
 
 2.  **Start developing.**
 
     ```shell
-    npm run develop
+    yarn start
     ```
 
 3.  **Open the code and start customizing!**
