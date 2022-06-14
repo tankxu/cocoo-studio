@@ -48,6 +48,14 @@ module.exports = {
     },
     "gatsby-transformer-sharp",
     {
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        includeInDevelopment: true, // optional parameter to include script in development
+        id: 3019066,
+        sv: 6,
+      },
+    },
+    {
       resolve: "gatsby-source-graphcms",
       options: {
         endpoint:
