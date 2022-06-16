@@ -153,7 +153,7 @@ const TabButtons = ({ buttons, changeTab, activeTab }) => {
           <button
             className={classnames(
               button === activeTab
-                ? "text-black text-lg after:absolute after:h-1 after:w-20 after:bg-brand-blue2 after:left-[calc(50%-40px)] after:bottom-0"
+                ? "text-black text-lg after:absolute after:h-[3px] after:w-20 after:bg-brand-blue1 after:left-[calc(50%-40px)] after:bottom-0"
                 : "text-gray-500 text-base",
               "whitespace-nowrap py-4 px-1 font-medium transition-all relative"
             )}
@@ -466,13 +466,13 @@ const IndexPage = () => {
                     <StaticImage
                       src="../images/logo-tencent-coding.png"
                       alt="Tencent Cloud and Coding logo"
-                      width="680"
+                      width="590"
                       placeholder="blurred"
                       className="mt-36"
                     />
                     <div className="text-base text-brand-blue3 mt-14">
                       <p className="leading-relaxed">
-                        CODING Logo 由来已久，代表了code
+                        CODING Logo 由来已久，代表了Code
                         文化，即“严谨，高效，智慧”，新的标识更加简洁明快，在各类屏幕和印刷尺寸下，都可以迅速识别，我们推荐在不同的场合下使用不同的
                         logo 排版组合和色彩搭配，以便统一企业印象。
                       </p>
@@ -598,7 +598,7 @@ const IndexPage = () => {
                       <p className="hidden sm:block">Pad</p>
                     </div>
                     <a
-                      href="https://www.figma.com/community/file/1060183562623323401"
+                      href="https://www.figma.com/community/file/1119239420205571259"
                       target="_blank"
                     >
                       <PrimaryButton styleName="mt-12">
@@ -688,7 +688,7 @@ const IndexPage = () => {
           </div>
 
           {/* 色彩 Section */}
-          <div className="bg-white py-8 lg:pb-44">
+          <div className="bg-white pt-8 lg:pb-44">
             <SectionTitle
               section={sectionTitleContent[5]}
               styleName="lg:mb-40"
@@ -968,7 +968,7 @@ const IndexPage = () => {
                     <StaticImage
                       src="../images/monkit-logo.png"
                       alt="monkit logo"
-                      width="520"
+                      width="506"
                       placeholder="blurred"
                       className="max-w-60%  mx-4"
                     ></StaticImage>

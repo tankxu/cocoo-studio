@@ -42,7 +42,7 @@ const BlogPage = () => {
             端体验设计的经验心得与行业洞察。欢迎关注我们的公众号「Cocoo
             Stuido」，及时获取更新通知。
           </p>
-          <div className="max-w-4xl mx-auto grid gap-5 text-left">
+          <div className="max-w-4xl mx-auto grid gap-10 text-left">
             {console.log(blogPosts)}
             {blogPosts.data.nodes.map((post) => {
               let d = new Date(post.postDate);
