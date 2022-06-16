@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 
 const Monkit = () => {
   return (
-    <div className="relative text-center bg-white pt-28 pb-20 px-4 sm:px-6 lg:pt-36 lg:pb-28 lg:px-8 min-h-screen">
+    <section className="relative text-center bg-white pt-28 pb-20 px-4 sm:px-6 lg:pt-36 lg:pb-28 lg:px-8 min-h-screen">
       <Helmet>
         <title>CoCoo Studio - Monkit UI</title>
       </Helmet>
@@ -30,7 +30,7 @@ const Monkit = () => {
       <a href="http://monkit.coding.io/" target="_blank">
         <PrimaryButton styleName="mt-12">前往 Monkit UI</PrimaryButton>
       </a>
-    </div>
+    </section>
   );
 };
 

@@ -1,4 +1,10 @@
-import React, { Fragment, useEffect, useState, useRef } from "react";
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+  useRef,
+  useLayoutEffect,
+} from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import classnames from "classnames";
 import { Popover, Transition } from "@headlessui/react";
@@ -46,9 +52,9 @@ const HeaderLink = ({ title, link, activated, dark }) => {
   );
 };
 
-const Header = () => {
-  const page = useLocation().pathname;
-  const isHome = page === "/";
+const Header = ({ location }) => {
+  const [isH, toggleisHome] = useState(false);
+  const [page, setPage] = useState(`/`);
   const [wiggleLogo, setWiggleLogo] = useState(false);
   const [hoverCloud, setHoverCloud] = useState(false);
   const ideologySection = useRef(null);
@@ -60,6 +66,16 @@ const Header = () => {
   const removeWiggleClass = () => {
     setWiggleLogo(false);
   };
+
+  useLayoutEffect(() => {
+    if (!window.location) {
+      return;
+    }
+
+    const path = window?.location?.pathname;
+    setPage(path);
+    toggleisHome(path === `/`);
+  });
 
   useEffect(() => {
     const logoHorizontal = document.querySelector(`#logo-horizontal`);
@@ -88,7 +104,7 @@ const Header = () => {
   return (
     <div
       className={classnames(
-        isHome
+        isH
           ? "overflow-hidden"
           : "border-b-[1px] border-gray-200 bg-position-960px fixed z-10",
         "w-full flex flex-col md:flex-col-reverse transition-all duration-700 bg-size-hero bg-white bg-gradient-to-b from-gradient-blue1 to-gradient-blue2 bg-no-repeat"
@@ -101,14 +117,14 @@ const Header = () => {
         <div
           className={classnames(
             "lg:px-8 flex flex-row-reverse md:flex-row justify-end relative mx-auto w-full max-w-7xl transition-all duration-500",
-            isHome ? "px-0" : "md:pr-44 lg:pr-44"
+            isH ? "px-0" : "md:pr-44 lg:pr-44"
           )}
         >
           <div
             id="logo-horizontal"
             className={classnames(
               "opacity-0 transition-all duration-500 md:absolute left-6",
-              isHome ? "" : "opacity-100 delay-500",
+              isH ? "" : "opacity-100 delay-500",
               wiggleLogo ? wiggleOnHover : ""
             )}
           >
@@ -126,7 +142,7 @@ const Header = () => {
 
           <div
             className={classnames(
-              isHome ? "w-0" : "md:w-full",
+              isH ? "w-0" : "md:w-full",
               "transition-all duration-500"
             )}
           ></div>
@@ -134,12 +150,12 @@ const Header = () => {
           <div
             className={classnames(
               "bg-transparent pt-[14px] md:pt-6 h-18",
-              isHome ? "w-full" : "md:min-w-[360px] w-10 mr-6 md:mr-0 md:w-full"
+              isH ? "w-full" : "md:min-w-[360px] w-10 mr-6 md:mr-0 md:w-full"
             )}
           >
             <nav
               className={classnames(
-                isHome ? "px-4 sm:px-6" : "px-4",
+                isH ? "px-4 sm:px-6" : "px-4",
                 "relative max-w-7xl mx-auto flex items-center justify-between "
               )}
               aria-label="Global"
@@ -156,7 +172,7 @@ const Header = () => {
                 <div
                   className={classnames(
                     "lg:mx-auto w-full max-w-xl lg:max-w-2xl hidden md:grid md:grid-cols-4 transition-all duration-500",
-                    isHome ? "text-xl" : "text-base"
+                    isH ? "text-xl" : "text-base"
                   )}
                 >
                   {navigation.map((item, index) => (
@@ -164,7 +180,7 @@ const Header = () => {
                       title={item.name}
                       link={item.href}
                       activated={page === item.href}
-                      dark={isHome}
+                      dark={isH}
                     />
                   ))}
                 </div>
@@ -176,7 +192,7 @@ const Header = () => {
             href="https://coding.net"
             target="_blank"
             className={classnames(
-              isHome
+              isH
                 ? "bottom-0 md:bottom-4 right-4 md:right-8"
                 : "bottom-[10px] right-6",
               "hidden absolute xs:block"
@@ -246,7 +262,7 @@ const Header = () => {
       <div className="flex justify-center mx-4 sm:mx-6 lg:mx-8">
         <div
           className={classnames(
-            isHome
+            isH
               ? "max-h-[880px] pt-12 pb-24"
               : "max-h-0 opacity-0 pointer-events-none",
             "grid grid-cols-12 gap-4 text-center max-w-co-grid transition-all duration-700 w-full"

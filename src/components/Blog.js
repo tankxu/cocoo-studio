@@ -28,7 +28,7 @@ const BlogPage = () => {
   `);
 
   return (
-    <div>
+    <section>
       <Helmet>
         <title>CoCoo Studio - 设计博客</title>
       </Helmet>
@@ -103,7 +103,7 @@ const BlogPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -24,7 +24,7 @@ const LazyComponent = ({ Component, ...props }) => (
 
 const Index = (props) => (
   <>
-    <Header />
+    <Header location={props.location} />
     {props.children}
   </>
 );
