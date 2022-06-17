@@ -32,7 +32,7 @@ const BlogPage = () => {
       <Helmet>
         <title>CoCoo Studio - 设计博客</title>
       </Helmet>
-      <div className="relative text-center bg-white pt-28 pb-20 px-4 sm:px-6 lg:pt-36 lg:pb-28 lg:px-8 min-h-screen">
+      <div className="relative text-center bg-white pt-28 pb-24 px-4 sm:px-6 lg:py-36 lg:px-8 min-h-screen">
         <div className="relative max-w-7xl mx-auto">
           <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
             CoCoo Blog
@@ -42,7 +42,7 @@ const BlogPage = () => {
             端体验设计的经验心得与行业洞察。欢迎关注我们的公众号「Cocoo
             Stuido」，及时获取更新通知。
           </p>
-          <div className="max-w-4xl mx-auto grid gap-10 text-left">
+          <div className="max-w-4xl mx-auto grid gap-14 text-left">
             {console.log(blogPosts)}
             {blogPosts.data.nodes.map((post) => {
               let d = new Date(post.postDate);

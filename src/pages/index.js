@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import { Helmet } from "react-helmet";
 
 import Header from "../components/header";
+import Footer from "../components/footer";
 
 // const Home = React.lazy(() => import("../components/Home"));
 // const Monkit = React.lazy(() => import("../components/Monkit"));
@@ -26,12 +27,10 @@ const Index = (props) => (
   <>
     <Header location={props.location} />
     {props.children}
+    <Footer />
   </>
 );
 
-const ShopContent = () => <div>shop</div>;
-
-const Shop = (props) => <div>{props.children}</div>;
 const NotFound = () => <p>Sorry, nothing here</p>;
 
 const IndexPage = () => (
@@ -43,6 +42,7 @@ const IndexPage = () => (
         name="description"
         content="CoCoo Studio官方网站，CoCoo Studio是腾讯云CODING的体验设计团队，专注DevOps、开发工具类SaaS产品体验设计。提出“云端工作美学”体验设计语言，让云研发工作体验变得更加“纯净简单”，更能“动态适应”不同场景和功能服务，也能企业变得更有“文化和思考”。"
       />
+      <meta name="author" content="Tank Xu" />
     </Helmet>
     <Router>
       {/* <NotFound default /> */}
@@ -53,9 +53,6 @@ const IndexPage = () => (
         <LazyComponent Component={Store} path="/store" />
         <LazyComponent Component={Blog} path="/blog" />
       </Index>
-      <Shop path="shop">
-        <ShopContent path="/" />
-      </Shop>
     </Router>
   </div>
 );
