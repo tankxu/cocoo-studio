@@ -327,12 +327,11 @@ const Header = ({ location }) => {
               </p>
               <p className="mt-4">
                 Tencent CODING focuses on creating DevOps SaaS products and
-                services, and tailoring cloud R&D work suites for
-                enterprises.The experience language "Cloud Work Aesthetics"
-                proposed by CODING DevOps is to make the cloud R&D work
-                experience more "pure", to "dynamically adapt" to different
-                scenarios and functional services, and to become more "cultural
-                and thinking".
+                services, and customising cloud R&D work suites for enterprises.
+                The experience language "Cloud Work Aesthetics" proposed by
+                CODING is to make the cloud R&D work experience more "pure", to
+                "dynamically adapt" to different scenarios and functional
+                services, and to become more "cultural and thinking".
               </p>
             </div>
           </div>
